@@ -1,0 +1,11 @@
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\RubiksCubeSolver.exe.config
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.csprojResolveAssemblyReference.cache
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.Properties.Resources.resources
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.csproj.GenerateResource.Cache
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\RubiksCubeSolver.exe
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\RubiksCubeSolver.pdb
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.exe
+c:\users\huapa_000\documents\visual studio 2013\Projects\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.pdb
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\RubiksCubeSolver.exe.config
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.exe
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\RubiksCubeSolver.pdb
