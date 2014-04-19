@@ -1,0 +1,9 @@
+H:\cubebot\PC\Serial\Serial\bin\Debug\Serial.exe
+H:\cubebot\PC\Serial\Serial\bin\Debug\Serial.pdb
+H:\cubebot\PC\Serial\Serial\obj\x86\Debug\Serial.exe
+H:\cubebot\PC\Serial\Serial\obj\x86\Debug\Serial.pdb
+C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\obj\x86\Debug\Serial.exe
+C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\obj\x86\Debug\Serial.pdb
+C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\bin\Debug\Serial.exe
+C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\bin\Debug\Serial.pdb
+C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\obj\x86\Debug\ResolveAssemblyReference.cache
