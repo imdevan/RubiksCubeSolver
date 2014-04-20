@@ -146,7 +146,15 @@
             this.rubiksCubeWrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.rubiksCubeWrapper.Size = new System.Drawing.Size(580, 396);
             this.rubiksCubeWrapper.TabIndex = 0;
-            // TODO: Create Cube Faces
+
+            /**********************************************************************************************************************************************
+             * Cube Face Definitions
+             * 
+             * Here we dynamically create and define each cubie and their event handlers
+             * 
+             * Author:
+             * Devan Huapaya
+             * *********************************************************************************************************************************************/
             for (int ci = 0; ci < 4; ci++)
             {
                 for (int ri = 0; ri < 3; ri++)
@@ -196,6 +204,10 @@
 
                     this.rubiksCubeWrapper.Controls.Add(tempTableLayout, ci, ri);
                 }
+
+                /**********************************************************************************************************************************************
+                 * End: Cubie Face Definitions
+                 * *********************************************************************************************************************************************/
             }
             // 
             // brushButtonPanel
@@ -649,7 +661,11 @@
             this.AccessibleName = "form";
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 529);
+            /**********************************************************************************************************************************************
+            * TODO: find good height width for form
+            **********************************************************************************************************************************************/
+            // this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(1900, 1080);
             this.Controls.Add(this.formWrapper);
             this.Name = "rubiksCubeInterfaceForm";
             this.Text = "Rubik\'s Cube Solver";
