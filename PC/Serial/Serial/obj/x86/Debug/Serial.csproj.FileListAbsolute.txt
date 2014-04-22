@@ -7,3 +7,5 @@ C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial
 C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\bin\Debug\Serial.exe
 C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\bin\Debug\Serial.pdb
 C:\Documents and Settings\Rene A\My Documents\CSE462\New Folder\PC\Serial\Serial\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\PC\Serial\Serial\obj\x86\Debug\Serial.exe
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\PC\Serial\Serial\obj\x86\Debug\Serial.pdb
