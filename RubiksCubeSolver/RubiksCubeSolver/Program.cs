@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace RubiksCubeSolver
 {
+
     static class Program
     {
         /// <summary>
@@ -48,6 +49,12 @@ namespace RubiksCubeSolver
             }
 
 
+            /* Create Rubiks Cube Object
+             * ***********************************************************/
+            Cube rubiksCube = new Cube();
+
+            /* Create User Interface
+             * ***********************************************************/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new rubiksCubeInterfaceForm());

@@ -1,4 +1,5 @@
-﻿namespace RubiksCubeSolver
+﻿using System;
+namespace RubiksCubeSolver
 {
     partial class rubiksCubeInterfaceForm
     {
@@ -155,6 +156,11 @@
              * Author:
              * Devan Huapaya
              * *********************************************************************************************************************************************/
+            // Counter to keep track of the true cube face
+            int trueFace = 0;
+            int trueIndex = 0;
+            Cube rc = new Cube();
+            Face[] faceArray = new Face[6];
             for (int ci = 0; ci < 4; ci++)
             {
                 for (int ri = 0; ri < 3; ri++)
@@ -163,7 +169,8 @@
                     bool notCubeFace = (ri == 0 || ri == 2) && (ci == 0 || ci == 2 || ci == 3);
                     if (notCubeFace)
                         continue;
-
+                        
+                    
                     // define each face
                     System.Windows.Forms.TableLayoutPanel tempTableLayout = new System.Windows.Forms.TableLayoutPanel();
                     tempTableLayout.ColumnCount = 3;
@@ -174,8 +181,10 @@
                         tempTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
                     tempTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
                     tempTableLayout.Padding = new System.Windows.Forms.Padding(1);
+                    
 
-                    // iterate over each cube face
+                    // iterate over each cube face  
+                    Cubie[,] cubeArray = new Cubie[3,3];
                     for (int yi = 0; yi < 3; yi++)
                     {
                         for (int xi = 0; xi < 3; xi++)
@@ -183,6 +192,7 @@
                             // create temp button
                             System.Windows.Forms.Button tButton = new System.Windows.Forms.Button();
 
+                            // format button
                             tButton.BackColor = this.cubieColors[ri, ci];
                             tButton.Dock = System.Windows.Forms.DockStyle.Fill;
                             tButton.Size = new System.Drawing.Size(39, 55);
@@ -194,21 +204,31 @@
                             if (xi == 1 && yi == 1)
                                 tButton.Enabled = false;
 
-
+                            // add cubie to the interface
                             tempTableLayout.Controls.Add(tButton, xi, yi);
+
+                            // add cubie to the rubiks cube object
+                            // Cubie(int pindex, Color c, int fi, int xi, int yi)
+                            cubeArray[xi, yi] = new Cubie(
+                                                    trueIndex, // index
+                                                    (Color)trueFace, // color
+                                                    trueFace, // face
+                                                    xi, // x
+                                                    yi // y
+                                                );
+                            trueIndex++;
                         }
                     }
-
-                    System.Console.Out.WriteLine("" + ci + ri);
-                    // end label def
-
                     this.rubiksCubeWrapper.Controls.Add(tempTableLayout, ci, ri);
-                }
 
-                /**********************************************************************************************************************************************
-                 * End: Cubie Face Definitions
-                 * *********************************************************************************************************************************************/
+
+                    // Add variables to the rubiks cube object
+                    faceArray[trueFace] = new Face(trueFace, cubeArray);
+                    trueFace++;
+                }
             }
+            rubiksCube = new Cube(faceArray);
+
             // 
             // brushButtonPanel
             // 
@@ -750,6 +770,8 @@
                                                         {System.Drawing.Color.RoyalBlue, System.Drawing.Color.DarkOrange, System.Drawing.Color.RoyalBlue, System.Drawing.Color.RoyalBlue } 
                                                       };
         private System.Drawing.Color brush;
+
+        Cube rubiksCube = new Cube();
     }
 }
 

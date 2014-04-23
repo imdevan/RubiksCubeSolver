@@ -60,8 +60,8 @@ namespace RubiksCubeSolver
 
         private void solveButton_Click(object sender, EventArgs e)
         {
-            brushButtonPanel.BackColor = orangeButton.BackColor;
-            brush = brushButtonPanel.BackColor;
+            ValidateCube();
+            SendCubeToSolver();
         }
 
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
@@ -76,7 +76,7 @@ namespace RubiksCubeSolver
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ClickHandler(object sender, System.EventArgs e)
@@ -84,5 +84,32 @@ namespace RubiksCubeSolver
             ((Button)sender).BackColor = brush;
         }
 
+        private void ValidateCube() 
+        {
+              /**********************************************************************************************************************************************
+             * Cube Validation Iterates over user interface cube and checks that each cubie has the correct corresponding sides.
+             * *********************************************************************************************************************************************/
+            for (int fi = 0; fi < rubiksCube.faces.Length; fi++)
+            {
+                // iterate over each cube face
+                for (int yi = 0; yi < 3; yi++)
+                {
+                    for (int xi = 0; xi < 3; xi++)
+                    {
+                        // TODO: check cube here.
+                        Console.WriteLine(
+                            rubiksCube.faces[fi].cubies[xi,yi].ToString()
+                       );
+                    }
+                }
+
+            }
+
+        }
+
+        private void SendCubeToSolver()
+        {
+            // TODO:
+        }
     }
 }

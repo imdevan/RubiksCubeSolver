@@ -69,7 +69,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Launchpad Communication\Program.cs" />
     <Compile Include="Launchpad Communication\Serial.cs" />
     <Compile Include="Launchpad Communication\SerialComm.cs" />
     <Compile Include="Launchpad Communication\SerialFramer.cs" />
