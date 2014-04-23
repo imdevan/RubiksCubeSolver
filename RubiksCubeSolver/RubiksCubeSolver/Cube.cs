@@ -25,9 +25,9 @@ namespace RubiksCubeSolver
 {
 
     enum Color { RED, BLUE, WHITE, GREEN, YELLOW, ORANGE}
-    enum FaceIndex {FRONT, BACK, RIGHT, UP, LEFT, RIGHT}
+    enum FaceIndex {FRONT, BACK, RIGHT, UP, LEFT}
 
-    class Cube
+    class Cubie
     {
         Color color;
         Color [] adjacentColors; // size: 2-4
@@ -39,7 +39,7 @@ namespace RubiksCubeSolver
     class Face
     {
         FaceIndex index;
-        Cube[,] cubies;
+        Cubie[,] cubies;
     }
     class Cube
     {

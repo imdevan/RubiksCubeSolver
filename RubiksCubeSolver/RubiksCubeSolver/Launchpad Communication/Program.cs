@@ -1,9 +1,10 @@
-﻿using System;
+﻿ /*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace Serial
+namespace RubiksCubeSolver
 {
+    
      class Program
      {
           static void Main(string[] args)
@@ -19,13 +20,7 @@ namespace Serial
                comPort = Console.ReadLine();
                if (comm.OpenPort(comPort))
                {
-                   /* 
-                    * In order to open communction - 'check device manager for com port "COM<integer>"'
-                    * TODO: find fix for launchpad to work on windows.
-                    * 
-                    * GREEN wires goes to: 3.4
-                    * WHITE wire goes to:  3.3
-                   */
+                  
                     byte[] message = new byte[] { 0x01, 0x02, 0x03, 0x04};
                     Console.WriteLine("Sending message...");
                     UInt16 time = 50;
@@ -39,3 +34,4 @@ namespace Serial
           }
      }
 }
+*/
