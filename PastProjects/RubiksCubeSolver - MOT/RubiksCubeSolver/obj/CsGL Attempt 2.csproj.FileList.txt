@@ -1,0 +1,9 @@
+bin\Debug\CsGL Attempt 2.exe
+bin\Debug\CsGL Attempt 2.pdb
+bin\Debug\csgl.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CsGL_Attempt_2.Properties.Resources.resources
+obj\Debug\CsGL Attempt 2.csproj.GenerateResource.Cache
+obj\Debug\CsGL Attempt 2.exe
+obj\Debug\CsGL Attempt 2.pdb
+obj\Debug\CsGL_Attempt_2.Form1.resources

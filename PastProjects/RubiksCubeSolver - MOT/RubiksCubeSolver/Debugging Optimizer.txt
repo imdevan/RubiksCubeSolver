@@ -1,0 +1,41 @@
+        private void optimizeSolution()
+        {
+            this.holder = new Orientation(this.orientation);
+            ArrayList orientations = new ArrayList();
+            ArrayList optimized = new ArrayList();
+            for (int i = 0; i < solutionList.Count; i++)
+            {
+                makeMove((Moves) solutionList[i]);
+                orientations.Add(this.orientation.ToString());
+            }
+            using (StreamWriter sw = new StreamWriter("after.txt"))
+            {
+                for (int i = 0; i < orientations.Count; i++)
+                {
+                    int lastIndex = orientations.LastIndexOf(orientations[i]);
+                    if (lastIndex != i)
+                    {
+                        sw.WriteLine(i.ToString() + " " + "Skip From " + i.ToString() + " to " + lastIndex.ToString());
+                        optimized.Add(solutionList[i]);
+                        i = lastIndex;
+
+                    }
+                    else
+                    {
+                        optimized.Add(solutionList[i]);
+                        sw.WriteLine(i.ToString() + " " + solutionList[i].ToString());
+                    }
+                }
+            }
+            using (StreamWriter sw = new StreamWriter("before.txt"))
+            {
+                for (int i = 0; i < solutionList.Count; i++)
+                {
+                    sw.WriteLine(i.ToString() + " " + solutionList[i].ToString());
+                }
+            }
+            myForm.beforeOptimization.Text = solutionList.Count.ToString();
+            myForm.afterOptimization.Text = optimized.Count.ToString();
+            solutionList = optimized;
+            this.orientation = new Orientation(this.holder);
+        }
