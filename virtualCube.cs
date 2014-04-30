@@ -1,4 +1,6 @@
+enum State {solved ,unsolved};
 
+enum Phase {first, second, third, fourth, fifth, sixth};
 
 using System;
 //using ...;
@@ -455,7 +457,17 @@ namespace virtualCube
 				
 				break;
 			}//switch
-
+		
+		//ALGORITHM
+		//PHASE I
+		
+		
+		//PHASE II
+		
+		//PHASE III
+		
+		//PHASE IV
+		
 		}	//main
 	}		//class
 }			//namespace

@@ -1,0 +1,126 @@
+54 TOTAL 'FACETS,' 48 OF WHICH ARE 'MOVABLE'
+Assign each of the 54 a color (B = BLUE,G = GREEN,O = ORANGE,R = RED,W = WHITE,Y = YELLOW), inputting 48 of them as a 
+sequential string -> based on input, assign movements with respect to facet/side corellation.
+
+???
+
+U = WHITE
+F = RED
+L = GREEN
+R = BLUE
+B = ORANGE
+D = YELLOW
+
+Mapping: 
+				 --- --- ---
+				|0,2|1,2|2,2|
+	             --- --- ---
+		        |0,1|1,1|2,1|
+	             --- --- ---
+		        |0,0|1,0|2,0|
+	             --- --- ---
+
+		         --- --- ---
+	            | 1 | 2 | 3 |
+		         --- --- ---
+	            | 4 | U | 5 |
+		         --- --- ---
+	            | 6 | 7 | 8 |
+	 --- --- --- --- --- --- --- --- --- --- --- ---
+	| 9 | 10| 11| 17| 18| 19| 25| 26| 27| 33| 34| 35|		Level I (20):	(1, 2, 3, 4, 5 , 6, 7, 8, 9, 10, 11, 17, 18, 19, 25, 26, 27, 33, 34, 35)
+	 --- --- --- --- --- --- --- --- --- --- --- ---			
+	| 12| L | 13| 20| F | 21| 28| R | 29| 36| B | 37|		Level II (8):	(12, 13, 20, 21, 28, 29, 36, 37)
+	 --- --- --- --- --- --- --- --- --- --- --- ---
+	| 14| 15| 16| 22| 23| 24| 30| 31| 32| 38| 39| 40|		Level III (20):	(14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48)
+	 --- --- --- --- --- --- --- --- --- --- --- ---
+		        | 41| 42| 43|
+	             --- --- ---
+		        | 44| D | 45|
+	             --- --- ---
+		        | 46| 47| 48|
+	             --- --- ---
+
+Singmaster Notation (Modified)
+Key		Meaning
+R		Right face. In English, R is for “Right”.
+L		Left face. In English, L is for “Left”.
+U		Up or top face. In English, U is for “Up”.
+D		Down or bottom face. In English, D is for “Down”.
+F		Front face. In English, F is for “Front”.
+B		Back face. In English, B is for “Back”.
+'		Suffix for a reverse or anti-clockwise move. R' is the reverse of R.
+2		Suffix for double move. R2 rotates R twice.
++		Suffix for two-face move. R+ is RL' in another form.
+-		Suffix for anti-two-face move. R- is RL in another form.
+.		Prefix for inner-slice move. “.R” is one step in from the R face.
+C		Prefix for whole-cube move. In English, C is for “Cube”.
+				 
+SIDE NOTATION:
+	U = UP
+	F = FRONT
+	R = RIGHT
+	L = LEFT
+	D = DOWN
+	B = BACK
+	
+MOVE NOTATION:	
+	U = ROTATE "U" CLOCKWISE
+		u = ROTATE "U" COUNTER-CLOCKWISE
+		
+	F = ROTATE "F" CLOCKWISE
+		f = ROTATE "F" COUNTER-CLOCKWISE
+		
+	R = ROTATE "R" CLOCKWISE
+		r = ROTATE "R" COUNTER-CLOCKWISE
+		
+	L = ROTATE "L" CLOCKWISE
+		l = ROTATE "L" COUNTER-CLOCKWISE
+		
+	D = ROTATE "D" CLOCKWISE
+		d = ROTATE "D" COUNTER-CLOCKWISE
+		
+	B = ROTATE "B" CLOCKWISE
+		b = ROTATE "B" COUNTER-CLOCKWISE
+
+
+Level I: Top layer, 21 facets total -> (1, 2, 3, 4, 5 , 6, 7, 8, 9, 10, 11, 17, 18, 19, 25, 26, 27, 33, 34, 35)
+
+- 
+- 
+- 
+- 
+- 
+
+Level II: Mid-layer, 9 facets total -> ()
+- 
+- 
+- 
+- 
+- 
+
+Level III: Bottom Layer; 21 facets total -> ()
+- 
+- 
+- 
+- 
+- 
+
+ 
+
+
+
+
+
+
+We don't need middle slice movements --> a clockwise middle slice movement is the same as a counter-clockwise movement of its outerlayers, and vice-versa
+
+
+Initial State "Hard Code" ==> Clean --> ULDRFbul
+	Level I:	fBruf	dfDFDDdlDL	
+	Level II:	drDRDFdf	
+	Level III:	
+	
+	
+	
+	
+	
