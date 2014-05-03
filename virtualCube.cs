@@ -17,6 +17,8 @@ namespace virtualCube
 	//				B =	BACK clockwise;		b = BACK counter-clockwise
 	//				D =	DOWN clockwise;		d = DOWN counter-clockwise
 	
+		State current = State.unsolved;
+		Phase step = Phase.first;
 		char move;
 	
 		//multidimensional array of chars
@@ -82,7 +84,7 @@ namespace virtualCube
 
 
 		//switch statements for all 12 movements
-		switch (char){
+		switch (move){
 			case 'F':
 				//CW rotation of FRONT face
 				//BACK unaffected

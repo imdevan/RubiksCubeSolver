@@ -10,11 +10,11 @@ using System.Threading.Tasks;
  * 
  * This File contains the class definitions and implementation for the Rubik's Cube Solver
  * 
- * At the moment we are unsure as to the directional axis whichh we will be using to rotate to the cube.
+ * At the moment we are unsure as to the directional axis which we will be using to rotate to the cube.
  * Considerations to take into account are: that the cube can only be rotated by one column, or the entire cube.
  * 
  * Authors:
- * Andrew King
+ * Andrew King III
  * Devan Huapaya
  * 
  * 
