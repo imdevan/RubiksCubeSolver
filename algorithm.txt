@@ -4,12 +4,13 @@ sequential string -> based on input, assign movements with respect to facet/side
 
 ???
 
-U = WHITE
-F = RED
-L = GREEN
-R = BLUE
-B = ORANGE
-D = YELLOW
+U = RED == 1
+L = BLUE == 2
+F = WHITE == 3
+R = GREEN == 4
+B = YELLOw == 5
+D = ORANGE == 6
+
 
 Mapping: 
 				 --- --- ---
