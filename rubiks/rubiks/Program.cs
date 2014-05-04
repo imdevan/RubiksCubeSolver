@@ -41,6 +41,25 @@ namespace rubiks
 			int [,] down = new int[3,3] 	{{6,6,6},
 											 {6,6,6},
 											 {6,6,6}};		
+											 
+			/*int [,] upper = new int[3,3] 	{{0,0,0},
+											 {0,0,0},
+											 {0,0,0}};		
+			int [,] left = new int[3,3] 	{{0,0,0},
+											 {0,0,0},
+											 {0,0,0}};		
+			int [,] front = new int[3,3] 	{{1,2,3},
+											 {4,5,6},
+											 {7,8,9}};		
+			int [,] right = new int[3,3] 	{{0,0,0},
+											 {0,0,0},
+											 {0,0,0}};	
+			int [,] back = new int[3,3] 	{{0,0,0},
+											 {0,0,0},
+											 {0,0,0}};		
+			int [,] down = new int[3,3] 	{{0,0,0},
+											 {0,0,0},
+											 {0,0,0}};*/		
 			
 			//PREVIOUS MOVE INDEX
 			/*int [,] upper0 = new int[3,3]; 	//{{,,},{,,},{,,}};		//WHITE
@@ -50,24 +69,24 @@ namespace rubiks
 			int [,] back0 = new int[3,3]; 	//{{5,5,5}, {5,5,5},{5,5,5}};		//RED
 			int [,] down0 = new int[3,3];	// {{6,6,6},{6,6,6},{6,6,6}};		//ORANGE*/
 			
-			int [,] upper0 = new int[3,3] 	{{upper[0,0],upper[1,0],upper[2,0]},
-											 {upper[0,1],upper[1,1],upper[2,1]},
-											 {upper[0,2],upper[1,2],upper[2,2]}}; 		
-			int [,] left0 = new int[3,3] 	{{left[0,0],left[1,0],left[2,0]},
-											 {left[0,1],left[1,1],left[2,1]},
-											 {left[0,2],left[1,2],left[2,2]}};  			
-			int [,] front0 = new int[3,3] 	{{front[0,0],front[1,0],front[2,0]},
-											 {front[0,1],front[1,1],front[2,1]},
-											 {front[0,2],front[1,2],front[2,2]}};		
-			int [,] right0 = new int[3,3] 	{{right[0,0],right[1,0],right[2,0]},
-											 {right[0,1],right[1,1],right[2,1]},
-											 {right[0,2],right[1,2],right[2,2]}}; 	
-			int [,] back0 = new int[3,3] 	{{back[0,0],back[1,0],back[2,0]},
-											 {back[0,1],back[1,1],back[2,1]},
-											 {back[0,2],back[1,2],back[2,2]}}; 			
-			int [,] down0 = new int[3,3] 	{{down[0,0],down[1,0],down[2,0]},
-											 {down[0,1],down[1,1],down[2,1]},
-											 {down[0,2],down[1,2],down[2,2]}};	
+			int [,] upper0 = new int[3,3] 	{{upper[0,0],upper[0,1],upper[0,2]},
+											 {upper[1,0],upper[1,1],upper[1,2]},
+											 {upper[2,0],upper[2,1],upper[2,2]}}; 		
+			int [,] left0 = new int[3,3] 	{{left[0,0],left[0,1],left[0,2]},
+											 {left[1,0],left[1,1],left[1,2]},
+											 {left[2,0],left[2,1],left[2,2]}}; 			
+			int [,] front0 = new int[3,3] 	{{front[0,0],front[0,1],front[0,2]},
+											 {front[1,0],front[1,1],front[1,2]},
+											 {front[2,0],front[2,1],front[2,2]}}; 		
+			int [,] right0 = new int[3,3] 	{{right[0,0],right[0,1],right[0,2]},
+											 {right[1,0],right[1,1],right[1,2]},
+											 {right[2,0],right[2,1],right[2,2]}}; 
+			int [,] back0 = new int[3,3] 	{{back[0,0],back[0,1],back[0,2]},
+											 {back[1,0],back[1,1],back[1,2]},
+											 {back[2,0],back[2,1],back[2,2]}}; 			
+			int [,] down0 = new int[3,3] 	{{down[0,0],down[0,1],down[0,2]},
+											 {down[1,0],down[1,1],down[1,2]},
+											 {down[2,0],down[2,1],down[2,2]}}; 
 
 		   while (true)
             {
@@ -106,41 +125,41 @@ namespace rubiks
 					Console.WriteLine();
                     Console.Write("\t"+" "+" "+" "+" " + " " + "---" + " " + "---" + " " + "---" + " ");
 					Console.WriteLine();
-					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + upper[0,2] + " " + "|" + " " + upper[1,2] + " " + "|" + " " + upper[2,2] + " " + "|");
+					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + upper[0,0] + " " + "|" + " " + upper[0,1] + " " + "|" + " " + upper[0,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write("\t"+" "+" "+" "+" " + " " + "---" + " " + "---" + " " + "---" + " ");
 					Console.WriteLine();
-					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + upper[0,1] + " " + "|" + " " + "U" + " " + "|" + " " + upper[2,1] + " " + "|");
+					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + upper[1,0] + " " + "|" + " " + "U" + " " + "|" + " " + upper[1,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write("\t"+" "+" "+" "+" " + " " + "---" + " " + "---" + " " + "---" + " ");
 					Console.WriteLine();
-					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + upper[0,0] + " " + "|" + " " + upper[1,0] + " " + "|" + " " + upper[2,0] + " " + "|");
+					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + upper[2,0] + " " + "|" + " " + upper[2,1] + " " + "|" + " " + upper[2,2] + " " + "|");
 					Console.WriteLine();
 					
                     Console.Write(" " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---");
 					Console.WriteLine();
-					Console.Write("|" + " " + left[0,2] + " " + "|" + " " + left[1,2] + " " + "|" + " " + left[2,2] + " " + "|" + " " + front[0,2] + " " + "|" + " " + front[1,2] + " " + "|" + " " + front[2,2] + " " + "|" + " " + right[0,2] + " " + "|" + " " + right[1,2] + " " + "|" + " " + right[2,2] + " " + "|" + " " + back[0,2] + " " + "|" + " " + back[1,2] + " " + "|" + " " + back[2,2] + " " + "|");
+					Console.Write("|" + " " + left[0,0] + " " + "|" + " " + left[0,1] + " " + "|" + " " + left[0,2] + " " + "|" + " " + front[0,0] + " " + "|" + " " + front[0,1] + " " + "|" + " " + front[0,2] + " " + "|" + " " + right[0,0] + " " + "|" + " " + right[0,1] + " " + "|" + " " + right[0,2] + " " + "|" + " " + back[0,0] + " " + "|" + " " + back[0,1] + " " + "|" + " " + back[0,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write(" " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---");
 					Console.WriteLine();
-					Console.Write("|" + " " + left[0,1] + " " + "|" + " " + "L" + " " + "|" + " " + left[2,1] + " " + "|" + " " + front[0,1] + " " + "|" + " " + "F" + " " + "|" + " " + front[2,1] + " " + "|" + " " + right[0,1] + " " + "|" + " " + "R" + " " + "|" + " " + right[2,1] + " " + "|" + " " + back[0,1] + " " + "|" + " " + "B" + " " + "|" + " " + back[2,1] + " " + "|");
+					Console.Write("|" + " " + left[1,0] + " " + "|" + " " + "L" + " " + "|" + " " + left[1,2] + " " + "|" + " " + front[1,0] + " " + "|" + " " + "F" + " " + "|" + " " + front[1,2] + " " + "|" + " " + right[1,0] + " " + "|" + " " + "R" + " " + "|" + " " + right[1,2] + " " + "|" + " " + back[1,0] + " " + "|" + " " + "B" + " " + "|" + " " + back[1,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write(" " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---");
 					Console.WriteLine();
-					Console.Write("|" + " " + left[0,0] + " " + "|" + " " + left[1,0] + " " + "|" + " " + left[2,0] + " " + "|" + " " + front[0,0] + " " + "|" + " " + front[1,0] + " " + "|" + " " + front[2,0] + " " + "|" + " " + right[0,0] + " " + "|" + " " + right[1,0] + " " + "|" + " " + right[2,0] + " " + "|" + " " + back[0,0] + " " + "|" + " " + back[1,0] + " " + "|" + " " + back[2,0] + " " + "|");
+					Console.Write("|" + " " + left[2,0] + " " + "|" + " " + left[2,1] + " " + "|" + " " + left[2,2] + " " + "|" + " " + front[2,0] + " " + "|" + " " + front[2,1] + " " + "|" + " " + front[2,2] + " " + "|" + " " + right[2,0] + " " + "|" + " " + right[2,1] + " " + "|" + " " + right[2,2] + " " + "|" + " " + back[2,0] + " " + "|" + " " + back[2,1] + " " + "|" + " " + back[2,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write(" " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---" + " " + "---");
 					Console.WriteLine();
 				
-					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + down[0,2] + " " + "|" + " " + down[1,2] + " " + "|" + " " + down[2,2] + " " + "|");
+					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + down[0,0] + " " + "|" + " " + down[0,1] + " " + "|" + " " + down[0,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write("\t"+" "+" "+" "+" " + " " + "---" + " " + "---" + " " + "---" + " ");
 					Console.WriteLine();
-					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + down[0,1] + " " + "|" + " " + "D" + " " + "|" + " " + down[2,1] + " " + "|");
+					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + down[1,0] + " " + "|" + " " + "D" + " " + "|" + " " + down[1,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write("\t"+" "+" "+" "+" " + " " + "---" + " " + "---" + " " + "---" + " ");
 					Console.WriteLine();
-					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + down[0,0] + " " + "|" + " " + down[1,0] + " " + "|" + " " + down[2,0] + " " + "|");
+					Console.Write("\t"+" "+" "+" "+" " + "|" + " " + down[2,0] + " " + "|" + " " + down[2,1] + " " + "|" + " " + down[2,2] + " " + "|");
 					Console.WriteLine();
 					Console.Write("\t"+" "+" "+" "+" " + " " + "---" + " " + "---" + " " + "---" + " ");
 					Console.WriteLine();
@@ -228,10 +247,10 @@ namespace rubiks
 							left[2,0] = left0[2,2];		left[2,1] = left0[1,2];		left[2,2] = left0[0,2];
 				
 						//LEFT CW side rotations
-							upper[,] = back0[,];		upper[,] = back0[,];		upper[,] = back0[,];
-							front[,] = upper0[,];		front[,] = upper0[,];		front[,] = upper0[,];	
-							down[,] = front0[,];		down[,] = front0[,];		down[,] = front0[,];	
-							back[,] = down0[,];			back[,] = down0[,];			back[,] = down0[,];	
+							upper[0,0] = back0[2,2];	upper[1,0] = back0[1,2];	upper[2,0] = back0[0,2];
+							front[0,0] = upper0[0,0];	front[1,0] = upper0[1,0];	front[2,0] = upper0[2,0];	
+							down[0,0] = front0[0,0];	down[1,0] = front0[1,0];	down[2,0] = front0[2,0];	
+							back[0,2] = down0[2,0];		back[1,2] = down0[1,0];		back[2,2] = down0[0,0];	
 						break;
 						
 						case "l":
@@ -242,10 +261,10 @@ namespace rubiks
 							left[2,0] = left0[0,0];		left[2,1] = left0[1,0];		left[2,2] = left0[2,0];
 				
 						//LEFT CCW side rotations
-							upper[,] = front0[,];		upper[,] = front0[,];		upper[,] = front0[,];
-							back[,] = upper0[,];		back[,] = upper0[,];		back[,] = upper0[,];
-							down[,] = back0[,];			down[,] = back0[,];			down[,] = back0[,];
-							front[,] = down0[,];		front[,] = down0[,];		front[,] = down0[,];
+							upper[0,0] = front0[0,0];	upper[1,0] = front0[1,0];	upper[2,0] = front0[2,0];
+							back[0,2] = upper0[2,0];	back[1,2] = upper0[1,0];	back[2,2] = upper0[0,0];
+							down[0,0] = back0[2,2];		down[1,0] = back0[1,2];		down[2,0] = back0[0,2];
+							front[0,0] = down0[0,0];	front[1,0] = down0[1,0];	front[2,0] = down0[2,0];
 						break;
 				
 						case "R":
@@ -257,10 +276,10 @@ namespace rubiks
 							right[2,0] = right0[2,2];	right[2,1] = right0[1,2];	right[2,2] = right0[0,2];
 				
 						//RIGHT CW side rotations
-							upper[,] = front0[,]; 		upper[,] = front0[,];		upper[,] = front0[,];	
-							back[,] = upper0[,];		back[,] = upper0[,];		back[,] = upper0[,];	
-							down[,] = back0[,];			down[,] = back0[,];			down[,] = back0[,];
-							front[,] = down0[,];		front[,] = down0[,];		front[,] = down0[,];	
+							upper[0,2] = front0[0,2]; 	upper[1,2] = front0[1,2];	upper[2,2] = front0[2,2];	
+							back[0,0] = upper0[2,2];	back[1,0] = upper0[1,2];	back[2,0] = upper0[0,2];	
+							down[0,2] = back0[2,0];		down[1,2] = back0[1,0];		down[2,2] = back0[0,0];
+							front[0,2] = down0[0,2];	front[1,2] = down0[1,2];	front[2,2] = down0[2,2];	
 						break;
 						
 						case "r":
@@ -271,10 +290,10 @@ namespace rubiks
 							right[2,0] = right0[0,0];	right[2,1] = right0[1,0];	right[2,2] = right0[2,0];
 				
 						//RIGHT CCW side rotations
-							upper[,] = back0[,];		upper[,] = back0[,];		upper[,] = back0[,];
-							front[,] = upper0[,];		front[,] = upper0[,];		front[,] = upper0[,];
-							down[,] = front0[,];		down[,] = front0[,];		down[,] = front0[,];
-							back[,] = down0[,];			back[,] = down0[,];			back[,] = down0[,];
+							upper[0,2] = back0[2,0];	upper[1,2] = back0[1,0];	upper[2,2] = back0[0,0];
+							front[0,2] = upper0[0,2];	front[1,2] = upper0[1,2];	front[2,2] = upper0[2,2];
+							down[0,2] = front0[0,2];	down[1,2] = front0[1,2];	down[2,2] = front0[2,2];
+							back[0,0] = down0[2,2];		back[1,0] = down0[1,2];		back[2,0] = down0[0,2];
 						break;
 			
 						case "U":
@@ -286,10 +305,10 @@ namespace rubiks
 							upper[2,0] = upper0[2,2];	upper[2,1] = upper0[1,2];	upper[2,2] = upper0[0,2];
 				
 						//UPPER CW side rotations
-							back[,] = left0[,]; 		back[,] = left0[,];			back[,] = left0[,];	
-							right[,] = back0[,];		right[,] = back0[,];		right[,] = back0[,];
-							front[,] = right0[,];		front[,] = right0[,];		front[,] = right0[,];
-							left[,] = front0[,];		left[,] = front0[,];		left[,] = front0[,];	
+							back[0,0] = left0[0,0]; 	back[0,1] = left0[0,1];		back[0,2] = left0[0,2];	
+							right[0,0] = back0[0,0];	right[0,1] = back0[0,1];	right[0,2] = back0[0,2];
+							front[0,0] = right0[0,0];	front[0,1] = right0[0,1];	front[0,2] = right0[0,2];
+							left[0,0] = front0[0,0];	left[0,1] = front0[0,1];	left[0,2] = front0[0,2];	
 						break;
 						
 						case "u":
@@ -300,10 +319,10 @@ namespace rubiks
 							upper[2,0] = upper0[0,0];	upper[2,1] = upper0[1,0];	upper[2,2] = upper0[2,0];
 				
 						//UPPER CCW side rotations
-							back[,] = right0[,];		back[,] = right0[,];		back[,] = right0[,];
-							left[,] = back0[,];			left[,] = back0[,];			left[,] = back0[,];
-							front[,] = left0[,];		front[,] = left0[,];		front[,] = left0[,];
-							right[,] = front0[,];		right[,] = front0[,];		right[,] = front0[,];
+							back[0,0] = right0[0,0];	back[0,1] = right0[0,1];	back[0,2] = right0[0,2];
+							left[0,0] = back0[0,0];		left[0,1] = back0[0,1];		left[0,2] = back0[0,2];
+							front[0,0] = left0[0,0];	front[0,1] = left0[0,1];	front[0,2] = left0[0,2];
+							right[0,0] = front0[0,0];	right[0,1] = front0[0,1];	right[0,2] = front0[0,2];
 						break;
 				
 						case "D":
@@ -315,10 +334,10 @@ namespace rubiks
 							down[2,0] = down0[2,2];		down[2,1] = down0[1,2];		down[2,2] = down0[0,2];
 				
 						//DOWN CW side rotations
-							front[,] = left0[,];		front[,] = left0[,];		front[,] = left0[,];
-							right[,] = front0[,];		right[,] = front0[,];		right[,] = front0[,];
-							back[,] = right0[,];		back[,] = right0[,];		back[,] = right0[,];
-							left[,] = back0[,];			left[,] = back0[,];			left[,] = back0[,];
+							front[2,0] = left0[2,0];	front[2,1] = left0[2,1];	front[2,2] = left0[2,2];
+							right[2,0] = front0[2,0];	right[2,1] = front0[2,1];	right[2,2] = front0[2,2];
+							back[2,0] = right0[2,0];	back[2,1] = right0[2,1];	back[2,2] = right0[2,2];
+							left[2,0] = back0[2,0];		left[2,1] = back0[2,1];		left[2,2] = back0[2,2];
 						break;
 				
 						case "d":
@@ -329,37 +348,37 @@ namespace rubiks
 							down[2,0] = down0[0,0];		down[2,1] = down0[1,0];		down[2,2] = down0[2,0];
 
 						//DOWN CCW side rotations
-							front[,] = right0[,];		front[,] = right0[,];	front[,] = right0[,];
-							right[,] = back0[,];		right[,] = back0[,];	right[,] = back0[,];
-							back[,] = left0[,]; 		back[,] = left0[,];		back[,] = left0[,];	
-							left[,] = front0[,];		left[,] = front0[,];	left[,] = front0[,];	
+							front[2,0] = right0[2,0];	front[2,1] = right0[2,1];	front[2,2] = right0[2,2];
+							right[2,0] = back0[2,0];	right[2,1] = back0[2,1];	right[2,2] = back0[2,2];
+							back[2,0] = left0[2,0]; 	back[2,1] = left0[2,1];		back[2,2] = left0[2,2];	
+							left[2,0] = front0[2,0];	left[2,1] = front0[2,1];	left[2,2] = front0[2,2];	
 						break;
 					}//switch
 					
-						upper0[0,0] = upper[0,0];	upper0[1,2] = upper[1,2];	upper0[2,2] = upper[2,2];
-						upper0[0,0] = upper[0,0];	upper0[1,1] = upper[1,1];	upper0[2,1] = upper[2,1];
-						upper0[0,0] = upper[0,0];	upper0[1,0] = upper[1,0];	upper0[2,0] = upper[2,0];
+						upper0[0,0] = upper[0,0];	upper0[0,1] = upper[0,1];	upper0[0,2] = upper[0,2];
+						upper0[1,0] = upper[1,0];	upper0[1,1] = upper[1,1];	upper0[1,2] = upper[1,2];
+						upper0[2,0] = upper[2,0];	upper0[2,1] = upper[2,1];	upper0[2,2] = upper[2,2];
 			
-						left0[0,0] = left[0,0];		left0[1,2] = left[1,2];		left0[2,2] = left[2,2];
-						left0[0,0] = left[0,0];		left0[1,1] = left[1,1];		left0[2,1] = left[2,1];
-						left0[0,0] = left[0,0];		left0[1,0] = left[1,0];		left0[2,0] = left[2,0];
+						left0[0,0] = left[0,0];		left0[0,1] = left[0,1];		left0[0,2] = left[0,2];
+						left0[1,0] = left[1,0];		left0[1,1] = left[1,1];		left0[1,2] = left[1,2];
+						left0[2,0] = left[2,0];		left0[2,1] = left[2,1];		left0[2,2] = left[2,2];
 			
-						front0[0,0] = front[0,0];	front0[1,2] = front[1,2];	front0[2,2] = front[2,2];
-						front0[0,0] = front[0,0];	front0[1,1] = front[1,1];	front0[2,1] = front[2,1];
-						front0[0,0] = front[0,0];	front0[1,0] = front[1,0];	front0[2,0] = front[2,0];
+						front0[0,0] = front[0,0];	front0[0,1] = front[0,1];	front0[0,2] = front[0,2];
+						front0[1,0] = front[1,0];	front0[1,1] = front[1,1];	front0[1,2] = front[1,2];
+						front0[2,0] = front[2,0];	front0[2,1] = front[2,1];	front0[2,2] = front[2,2];
 			
-						right0[0,0] = right[0,0];	right0[1,2] = right[1,2];	right0[2,2] = right[2,2];
-						right0[0,0] = right[0,0];	right0[1,1] = right[1,1];	right0[2,1] = right[2,1];
-						right0[0,0] = right[0,0];	right0[1,0] = right[1,0];	right0[2,0] = right[2,0];
+						right0[0,0] = right[0,0];	right0[0,1] = right[0,1];	right0[0,2] = right[0,2];
+						right0[1,0] = right[1,0];	right0[1,1] = right[1,1];	right0[1,2] = right[1,2];
+						right0[2,0] = right[2,0];	right0[2,1] = right[2,1];	right0[2,2] = right[2,2];
 			
-						back0[0,0] = back[0,0];		back0[1,2] = back[1,2];		back0[2,2] = back[2,2];
-						back0[0,0] = back[0,0];		back0[1,1] = back[1,1];		back0[2,1] = back[2,1];
-						back0[0,0] = back[0,0];		back0[1,0] = back[1,0];		back0[2,0] = back[2,0];
+						back0[0,0] = back[0,0];		back0[0,1] = back[0,1];		back0[0,2] = back[0,2];
+						back0[1,0] = back[1,0];		back0[1,1] = back[1,1];		back0[1,2] = back[1,2];
+						back0[2,0] = back[2,0];		back0[2,1] = back[2,1];		back0[2,2] = back[2,2];
 			
-						down0[0,0] = down[0,0];		down0[1,2] = down[1,2];		down0[2,2] = down[2,2];
-						down0[0,0] = down[0,0];		down0[1,1] = down[1,1];		down0[2,1] = down[2,1];
-						down0[0,0] = down[0,0];		down0[1,0] = down[1,0];		down0[2,0] = down[2,0];
-				//rubiks.Close();
+						down0[0,0] = down[0,0];		down0[0,1] = down[0,1];		down0[0,2] = down[0,2];
+						down0[1,0] = down[1,0];		down0[1,1] = down[1,1];		down0[1,2] = down[1,2];
+						down0[2,0] = down[2,0];		down0[2,1] = down[2,1];		down0[2,2] = down[2,2];
+				/*rubiks.Close();*/
 			}	//"unsolved" while loop
                 } if (response == "no")
                 {
