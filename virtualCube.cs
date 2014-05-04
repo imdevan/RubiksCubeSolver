@@ -2,6 +2,13 @@ enum State {solved ,unsolved};
 
 enum Phase {first, second, third, fourth, fifth, sixth};
 
+enum Color {white, yellow, blue, green, red, orange};
+
+enum clockWise {upper, down, front, back, left, right};
+enum counterClockWise {upper, down, front, back, left, right};
+
+enum move {cwupper, cwdown, cwfront, cwback, cwleft, cwright, ccwupper, ccwdown, ccwfront, ccwback, ccwleft, ccwright};
+
 using System;
 //using ...;
 
@@ -50,30 +57,55 @@ namespace virtualCube
 		
 		
 		*/
-							
-		char [,] front = new char[3,3] = {{"w","w","w"},	//WHITE
+		/*		
+		char [,] front = new char[3,3] {{"w","w","w"},	//WHITE
 										  {"w","w","w"},
 										  {"w","w","w"}};	
 						 
-		char [,] back = new char[3,3] = {{"y","y","y"},	//"YELLOW"
+		char [,] back = new char[3,3] {{"y","y","y"},	//"YELLOW"
 										 {"y","y","y"},
 									  	 {"y","y","y"}};
 						
-		char [,] left = new char[3,3] = {{"b","b","b"},	//"BLUE"
+		char [,] left = new char[3,3] {{"b","b","b"},	//"BLUE"
 										 {"b","b","b"},
 										 {"b","b","b"}};
 						
-		char [,] right = new char[3,3] = {{"g","g","g"},	//"GREEN"
+		char [,] right = new char[3,3] {{"g","g","g"},	//"GREEN"
 										  {"g","g","g"},
 										  {"g","g","g"}};
 						
-		char [,] upper = new char[3,3] = {{"r","r","r"},	//"RED"
+		char [,] upper = new char[3,3] {{"r","r","r"},	//"RED"
 										  {"r","r","r"},
 										  {"r","r","r"}};
 						 
-		char [,] down = new char[3,3] = {{"o","o","o"},	//"ORANGE"
+		char [,] down = new char[3,3] {{"o","o","o"},	//"ORANGE"
 										 {"o","o","o"},
 										 {"o","o","o"}};				
+
+		*/								 
+		char [,] front = new int[3,3] {{Color.white,Color.white,Color.white},	//WHITE
+										  {Color.white,Color.white,Color.white},
+										  {Color.white,Color.white,Color.white}};	
+						 
+		char [,] back = new int[3,3] {{Color.yellow,Color.yellow,Color.yellow},	//"YELLOW"
+										 {Color.yellow,Color.yellow,Color.yellow},
+									  	 {Color.yellow,Color.yellow,Color.yellow}};
+						
+		char [,] left = new int[3,3] {{Color.blue,Color.blue,Color.blue},	//"BLUE"
+										 {Color.blue,Color.blue,Color.blue},
+										 {Color.blue,Color.blue,Color.blue}};
+						
+		char [,] right = new int[3,3] {{Color.green,Color.green,Color.green},	//"GREEN"
+										  {Color.green,Color.green,Color.green},
+										  {Color.green,Color.green,Color.green}};
+						
+		char [,] upper = new int[3,3] {{Color.red,Color.red,Color.red},	//"RED"
+										  {Color.red,Color.red,Color.red},
+										  {Color.red,Color.red,Color.red}};
+						 
+		char [,] down = new int[3,3] {{Color.orange,Color.orange,Color.orange},	//"ORANGE"
+										 {Color.orange,Color.orange,Color.orange},
+										 {Color.orange,Color.orange,Color.orange}};				
 
 
 		//front[1,1]= "w"; 			//	assignments
@@ -85,7 +117,8 @@ namespace virtualCube
 
 		//switch statements for all 12 movements
 		switch (move){
-			case 'F':
+			case "F":
+			case "0":
 				//CW rotation of FRONT face
 				//BACK unaffected
 				front[0,0] = front[2,0];
@@ -117,7 +150,8 @@ namespace virtualCube
 				
 				break;
 				
-			case 'f':
+			case "f":
+			case "1":
 				//CCW rotation of BACK face
 				front[0,0] = front[0,2];
 				front[1,0] = front[0,1];
@@ -148,7 +182,8 @@ namespace virtualCube
 				
 				break;
 				
-			case 'B':
+			case "B":
+			case "2":
 				//CW rotation of BACK face
 				//FRONT unaffected
 				back[0,0] = back[2,0];
@@ -179,7 +214,8 @@ namespace virtualCube
 				down[2,0] = left[0,0];
 				
 				break;
-			case 'b':
+			case "b":
+			case "3":
 				//CCW rotation of BACK face
 				back[0,0] = back[0,2];
 				back[1,0] = back[0,1];
@@ -210,7 +246,8 @@ namespace virtualCube
 				
 				break;
 				
-			case 'L':
+			case "L":
+			case "4":
 				//CW rotation of LEFT face
 				//RIGHT unaffected
 				left[0,0] = left[2,0];
@@ -241,7 +278,8 @@ namespace virtualCube
 				down[0,2] = front[0,2];	
 				
 				break;
-			case 'l':
+			case "l":
+			case "5":
 				//CCW rotation of LEFT face
 				left[0,0] = left[0,2];
 				left[1,0] = left[0,1];
@@ -272,7 +310,8 @@ namespace virtualCube
 				
 				break;
 				
-			case 'R':
+			case "R":
+			case "6":
 				//clockwise rotation of RIGHT face
 				//LEFT unaffected
 				right[0,0] = right[2,0];
@@ -303,7 +342,8 @@ namespace virtualCube
 				down[2,2] = back[0,0];
 				
 				break;
-			case 'r':
+			case "r":
+			case "7":
 				//counter-clockwise rotation of RIGHT face
 				right[0,0] = right[0,2];
 				right[1,0] = right[0,1];
@@ -334,7 +374,8 @@ namespace virtualCube
 				
 				break;
 			
-			case 'U':
+			case "U":
+			case "8":
 				//clockwise rotation of UPPER face
 				//DOWN unaffected
 				upper[0,0] = upper[2,0];
@@ -365,7 +406,8 @@ namespace virtualCube
 				front[2,2] = right[2,2];	
 				
 				break;
-			case 'u':
+			case "u":
+			case "9":
 				//counter-clockwise rotation of UPPER face
 				upper[0,0] = upper[0,2];
 				upper[1,0] = upper[0,1];
@@ -396,7 +438,8 @@ namespace virtualCube
 				
 				break;
 				
-			case 'D':
+			case "D":
+			case "10":
 				//clockwise rotation of DOWN (bottom) face
 				//UPPER unaffected
 				down[0,0] = down[2,0];
@@ -428,7 +471,8 @@ namespace virtualCube
 				
 				break;
 				
-			case 'd':
+			case "d":
+			case "11":
 				//counter-clockwise rotation of DOWN (bottom) face
 				down[0,0] = down[0,2];
 				down[1,0] = down[0,1];
