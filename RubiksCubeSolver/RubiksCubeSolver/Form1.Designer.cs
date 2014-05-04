@@ -159,8 +159,12 @@ namespace RubiksCubeSolver
             // Counter to keep track of the true cube face
             int trueFace = 0;
             int trueIndex = 0;
+
+            // intiate cube object
             Cube rc = new Cube();
             Face[] faceArray = new Face[6];
+
+
             for (int ci = 0; ci < 4; ci++)
             {
                 for (int ri = 0; ri < 3; ri++)
@@ -198,7 +202,10 @@ namespace RubiksCubeSolver
                             tButton.Size = new System.Drawing.Size(39, 55);
                             tButton.TabIndex = xi + yi;
                             tButton.UseVisualStyleBackColor = false;
+
+                            // Add the button call back
                             tButton.Click += new System.EventHandler(ClickHandler);
+                            //tButton.Click += (sender, e) => ClickHandler(sender, e, xi, yi, ri, ci);
 
                             // middle positions are fixed
                             if (xi == 1 && yi == 1)
@@ -211,11 +218,12 @@ namespace RubiksCubeSolver
                             // Cubie(int pindex, Color c, int fi, int xi, int yi)
                             cubeArray[xi, yi] = new Cubie(
                                                     trueIndex, // index
-                                                    (Color)trueFace, // color
+                                                    (Color)(trueFace+1) , // color
                                                     trueFace, // face
                                                     xi, // x
                                                     yi // y
                                                 );
+
                             trueIndex++;
                         }
                     }
@@ -228,6 +236,7 @@ namespace RubiksCubeSolver
                 }
             }
             rubiksCube = new Cube(faceArray);
+
 
             // 
             // brushButtonPanel
@@ -769,7 +778,7 @@ namespace RubiksCubeSolver
                                                         { System.Drawing.Color.RoyalBlue, System.Drawing.Color.WhiteSmoke, System.Drawing.Color.MediumSeaGreen, System.Drawing.Color.Gold}, 
                                                         {System.Drawing.Color.RoyalBlue, System.Drawing.Color.DarkOrange, System.Drawing.Color.RoyalBlue, System.Drawing.Color.RoyalBlue } 
                                                       };
-        private System.Drawing.Color brush;
+        private System.Drawing.Color brush = System.Drawing.Color.Crimson;
 
         Cube rubiksCube = new Cube();
     }

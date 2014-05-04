@@ -61,7 +61,7 @@ namespace RubiksCubeSolver
         private void solveButton_Click(object sender, EventArgs e)
         {
             ValidateCube();
-            //SendCubeToSolver();
+            Solver.Run(rubiksCube);
         }
 
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
@@ -81,7 +81,40 @@ namespace RubiksCubeSolver
 
         private void ClickHandler(object sender, System.EventArgs e)
         {
+            // Paint the button the same color as the brush.
             ((Button)sender).BackColor = brush;
+
+            // Cast the sender to a button.
+            var button = sender as Button;
+
+            // Get the face index.
+            var fx = ((TableLayoutPanel)button.Parent.Parent).GetColumn((TableLayoutPanel)button.Parent);
+            var fy = ((TableLayoutPanel)button.Parent.Parent).GetRow((TableLayoutPanel)button.Parent);
+            int faceIndex = (fx ==1 && fy == 0) ? 1: 
+                            (fx ==0 && fy == 1) ? 2: 
+                            (fx ==1 && fy == 1) ? 3: 
+                            (fx ==2 && fy == 1) ? 4: 
+                            (fx ==3 && fy == 1) ? 5: 
+                            (fx ==1 && fy == 2) ? 6: 0; 
+                            
+            // Get the cubie index on face.
+            var cubex = ((TableLayoutPanel)button.Parent).GetColumn(button);
+            var cubey = ((TableLayoutPanel)button.Parent).GetRow(button);
+
+            // Set the color from the brush.
+            Color color = (brush == System.Drawing.Color.Crimson) ? color = Color.RED :
+                          (brush == System.Drawing.Color.RoyalBlue) ? color = Color.BLUE :
+                          (brush == System.Drawing.Color.WhiteSmoke) ? color = Color.WHITE :
+                          (brush == System.Drawing.Color.MediumSeaGreen) ? color = Color.GREEN :
+                          (brush == System.Drawing.Color.Gold) ? color = Color.YELLOW :
+                          (brush == System.Drawing.Color.DarkOrange) ? color = Color.ORANGE : Color.RED;
+                          
+            // Set the color of the cube.
+            rubiksCube.faces[faceIndex - 1].cubies[cubex, cubey].color = color;
+
+            // Verify
+            Console.WriteLine( rubiksCube.faces[faceIndex - 1].cubies[cubex, cubey].ToString());
+            Console.WriteLine(faceIndex + " (" + cubex + "," + cubey + ")");
         }
 
         private void ValidateCube()

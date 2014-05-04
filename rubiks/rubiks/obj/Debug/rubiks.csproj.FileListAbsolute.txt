@@ -7,3 +7,7 @@ C:\Users\aking3\Desktop\rubiks\rubiks\obj\Debug\rubiks.pdb
 E:\Solver\rubiks\rubiks\bin\Debug\rubiks.exe.config
 E:\Solver\rubiks\rubiks\obj\Debug\rubiks.exe
 E:\Solver\rubiks\rubiks\obj\Debug\rubiks.pdb
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\rubiks\rubiks\bin\Debug\rubiks.exe.config
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\rubiks\rubiks\obj\Debug\rubiks.exe
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\rubiks\rubiks\obj\Debug\rubiks.pdb
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\rubiks\rubiks\obj\Debug\rubiks.csprojResolveAssemblyReference.cache

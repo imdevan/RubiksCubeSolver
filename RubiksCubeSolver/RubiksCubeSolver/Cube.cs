@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 namespace RubiksCubeSolver
 {
 
-    public enum Color { RED, BLUE, WHITE, GREEN, YELLOW, ORANGE}
+    public enum Color { RED = 1,     BLUE, WHITE, GREEN, YELLOW, ORANGE}
     public enum FaceIndex {FRONT, BACK, RIGHT, UP, LEFT}
 
     public class Cubie
