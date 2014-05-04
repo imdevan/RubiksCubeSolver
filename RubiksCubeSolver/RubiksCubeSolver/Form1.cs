@@ -61,7 +61,7 @@ namespace RubiksCubeSolver
         private void solveButton_Click(object sender, EventArgs e)
         {
             ValidateCube();
-            SendCubeToSolver();
+            //SendCubeToSolver();
         }
 
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
@@ -84,11 +84,11 @@ namespace RubiksCubeSolver
             ((Button)sender).BackColor = brush;
         }
 
-        private void ValidateCube() 
+        private void ValidateCube()
         {
-              /**********************************************************************************************************************************************
-             * Cube Validation Iterates over user interface cube and checks that each cubie has the correct corresponding sides.
-             * *********************************************************************************************************************************************/
+            /**********************************************************************************************************************************************
+           * Cube Validation Iterates over user interface cube and checks that each cubie has the correct corresponding sides.
+           * *********************************************************************************************************************************************/
             for (int fi = 0; fi < rubiksCube.faces.Length; fi++)
             {
                 // iterate over each cube face
@@ -98,7 +98,7 @@ namespace RubiksCubeSolver
                     {
                         // TODO: check cube here.
                         Console.WriteLine(
-                            rubiksCube.faces[fi].cubies[xi,yi].ToString()
+                            rubiksCube.faces[fi].cubies[xi, yi].ToString()
                        );
                     }
                 }
@@ -107,9 +107,9 @@ namespace RubiksCubeSolver
 
         }
 
-        private void SendCubeToSolver()
-        {
-            // TODO:
-        }
+        //private void SendCubeToSolver()
+        //{
+        //    // TODO:
+        //}
     }
 }
