@@ -21,25 +21,31 @@ namespace BreakCube
         static int phase;
         static int state;
         static string move;
+        //static int upx, downx, leftx, rightx, frontx, backx;
 
-        /* static int[,] upper = new int[3, 3] 	{{1,2,6},	//RED
-                                                  {5,1,1},
-                                                  {3,1,2}};
+        static int[,] upper = new int[3, 3] 	{{4,2,1},	//RED
+                                                  {4,1,6},
+                                                  {5,2,2}};
+
          static int[,] left = new int[3, 3] 	    {{3,1,6},	//BLUE
-                                                  {5,2,4},
-                                                  {1,3,6}};
-         static int[,] front = new int[3, 3] 	{{4,3,1},	//WHITE
-                                                  {1,3,3},
-                                                  {5,4,4}};
-         static int[,] right = new int[3, 3] 	{{5,2,5},	//GREEN
+                                                  {2,2,3},
+                                                  {6,5,4}};
+
+         static int[,] front = new int[3, 3] 	{{2,3,6},	//WHITE
+                                                  {4,3,4},
+                                                  {6,5,4}};
+
+         static int[,] right = new int[3, 3] 	{{3,5,5},	//GREEN
                                                   {6,4,2},
-                                                  {3,2,3}};
-         static int[,] back = new int[3, 3] 	    {{4,6,2},	//YELLOW
-                                                  {3,5,6},
-                                                  {6,4,4}};
-         static int[,] down = new int[3, 3] 	    {{2,6,1},	//ORANGE
-                                                  {4,6,5},
-                                                  {5,5,2}};*/
+                                                  {1,3,3}};
+
+         static int[,] back = new int[3, 3] 	    {{2,5,1},	//YELLOW
+                                                  {6,5,1},
+                                                  {2,3,5}};
+
+         static int[,] down = new int[3, 3] 	    {{3,4,5},	//ORANGE
+                                                  {1,6,1},
+                                                  {4,6,1}};
 
         /*static int [,] upper = new int[3,3] 	{{1,1,1},	//RED
                                           {1,1,1},
@@ -59,7 +65,7 @@ namespace BreakCube
         static int[,] down = new int[3, 3] 	{{6,6,6},	//ORANGE
                                           {6,6,6},
                                           {6,6,6}};*/
-        /*static int[,] upper = new int[3, 3] 	{{1,1,6},	//RED
+       /*static int[,] upper = new int[3, 3] 	{{1,1,6},	//RED
                                             {3,1,6},
                                             {3,5,4}};
         static int[,] left = new int[3, 3] 	{{5,1,1},	//BLUE
@@ -77,45 +83,31 @@ namespace BreakCube
         static int[,] down = new int[3, 3] 	{{5,2,4},	//ORANGE
                                             {5,6,1},
                                             {2,6,2}};*/
-        static int[,] upper = new int[3, 3] 	{{1,3,6},	//RED
-                                            {4,1,3},
-                                            {3,5,4}};
-        static int[,] left = new int[3, 3] 	{{5,1,1},	//BLUE
-                                            {2,2,2},
-                                            {6,1,1}};
-        static int[,] front = new int[3, 3] 	{{2,4,1},	//WHITE
-                                            {6,3,6},
-                                            {2,3,6}};
-        static int[,] right = new int[3, 3] 	{{3,4,5},	//GREEN
-                                            {5,4,3},
-                                            {3,2,6}};
-        static int[,] back = new int[3, 3] 	{{4,4,4},	//YELLOW
-                                            {4,5,5},
-                                            {5,3,3}};
-        static int[,] down = new int[3, 3] 	{{5,1,4},	//ORANGE
-                                            {1,6,1},
-                                            {2,1,2}};
 
         //PREVIOUS MOVE INDEXES
         static int[,] upper0 = new int[3, 3] 	{{upper[0,0],upper[0,1],upper[0,2]},
 											 {upper[1,0],upper[1,1],upper[1,2]},
 											 {upper[2,0],upper[2,1],upper[2,2]}};
+
         static int[,] left0 = new int[3, 3] 	{{left[0,0],left[0,1],left[0,2]},
 											 {left[1,0],left[1,1],left[1,2]},
 											 {left[2,0],left[2,1],left[2,2]}};
+
         static int[,] front0 = new int[3, 3] 	{{front[0,0],front[0,1],front[0,2]},
 											 {front[1,0],front[1,1],front[1,2]},
 											 {front[2,0],front[2,1],front[2,2]}};
+
         static int[,] right0 = new int[3, 3] 	{{right[0,0],right[0,1],right[0,2]},
 											 {right[1,0],right[1,1],right[1,2]},
 											 {right[2,0],right[2,1],right[2,2]}};
+
         static int[,] back0 = new int[3, 3] 	{{back[0,0],back[0,1],back[0,2]},
 											 {back[1,0],back[1,1],back[1,2]},
 											 {back[2,0],back[2,1],back[2,2]}};
+
         static int[,] down0 = new int[3, 3] 	{{down[0,0],down[0,1],down[0,2]},
 											 {down[1,0],down[1,1],down[1,2]},
 											 {down[2,0],down[2,1],down[2,2]}};
-
 
         public static void movement(string move)
         {
@@ -330,272 +322,373 @@ namespace BreakCube
         //solveCross
         public static void solveCross()
         {
-
             if ((upper[0, 1] == (int)Color.red) && (upper[1, 0] == (int)Color.red) && (upper[2, 1] == (int)Color.red) && (upper[1, 2] == (int)Color.red))
             {
                 phase = (int)Phase.second;
                 Console.Write("PHASE II");
                 Console.WriteLine();
             }
-            else if ((down[0, 1] == (int)Color.red) || (down[1, 0] == (int)Color.red) || (down[2, 1] == (int)Color.red) || (down[1, 2] == (int)Color.red))
+            else if ((upper[0, 1] != (int)Color.red) || (upper[1, 0] != (int)Color.red) || (upper[2, 1] != (int)Color.red) || (upper[1, 2] != (int)Color.red))
             {
+                if ((down[0, 1] == (int)Color.red) || (down[1, 0] == (int)Color.red) || (down[2, 1] == (int)Color.red) || (down[1, 2] == (int)Color.red))
+                {
 
-                if (down[0, 1] == (int)Color.red)   //handles front
-                {
-                    if (upper[2, 1] != (int)Color.red)
+                    if (down[0, 1] == (int)Color.red)   //handles front
                     {
-                        move = "F";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
+                        if (upper[2, 1] != (int)Color.red)
+                        {
+                            move = "F";
+                            movement(move);
+                            MoveSet.Add(move);
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "D";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                    else
+                    else if (down[1, 0] == (int)Color.red)  //handles left
                     {
-                        move = "U";
-                        movement(move);
+                        if (upper[1, 0] != (int)Color.red)
+                        {
+                            move = "L";
+                            movement(move);
+                            MoveSet.Add(move);
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "D";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                }
-                else if (down[1, 0] == (int)Color.red)  //handles left
-                {
-                    if (upper[1, 0] != (int)Color.red)
+                    else if (down[2, 1] == (int)Color.red)  //handles back
                     {
-                        move = "L";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
+                        if (upper[0, 1] != (int)Color.red)
+                        {
+                            move = "B";
+                            movement(move);
+                            MoveSet.Add(move);
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "D";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                    else
+                    else if (down[1, 2] == (int)Color.red)  //handles right
                     {
-                        move = "U";
-                        movement(move);
+                        if (upper[1, 2] != (int)Color.red)
+                        {
+                            move = "R";
+                            movement(move);
+                            MoveSet.Add(move);
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "D";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                }
-                else if (down[2, 1] == (int)Color.red)  //handles back
-                {
-                    if (upper[0, 1] != (int)Color.red)
-                    {
-                        move = "B";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else
-                    {
-                        move = "U";
-                        movement(move);
-                    }
-                }
-                else if (down[1, 2] == (int)Color.red)  //handles right
-                {
-                    if (upper[1, 2] != (int)Color.red)
-                    {
-                        move = "R";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else
-                    {
-                        move = "U";
-                        movement(move);
-                    }
-                }
 
-            }
-            /*else if (left[0, 1] == (int)Color.red || left[1, 0] == (int)Color.red || left[2, 1] == (int)Color.red || left[1, 2] == (int)Color.red)
-            {
-                if (upper[1, 0] != (int)Color.red)
+                }
+              /*initial BREAK*/  else if ((down[0, 1] != (int)Color.red) && (down[1, 0] != (int)Color.red) && (down[2, 1] != (int)Color.red) && (down[1, 2] != (int)Color.red))
+                {
+                    if((left[0, 1] == (int)Color.red) || (left[1, 0] == (int)Color.red) || (left[2, 1] == (int)Color.red) || (left[1, 2] == (int)Color.red))
                 {
                     if (left[0, 1] == (int)Color.red)
                     {
                         move = "l";
                         movement(move);
                         MoveSet.Add(move);
-                        move = "b";
-                        movement(move);
-                        MoveSet.Add(move);
-                        move = "u";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (left[1, 0] == (int)Color.red)
-                    {
-                        move = "L";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (left[2, 1] == (int)Color.red)
-                    {
-                        move = "L";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (left[1, 2] == (int)Color.red)
-                    {
-                        move = "l";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                }
-                else
-                {
-                    move = "U";
-                    movement(move);
-                    MoveSet.Add(move);
-                }
-            }
-            else if (right[0, 1] == (int)Color.red || right[1, 0] == (int)Color.red || right[2, 1] == (int)Color.red || right[1, 2] == (int)Color.red)
-            {
-                if (upper[1, 2] != (int)Color.red)
-                {
-                    if (right[0, 1] == (int)Color.red)
-                    {
-                        move = "r";
-                        movement(move);
-                        MoveSet.Add(move);
-                        move = "f";
-                        movement(move);
-                        MoveSet.Add(move);
-                        move = "u";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (right[1, 0] == (int)Color.red)
-                    {
-                        move = "R";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (right[2, 1] == (int)Color.red)
-                    {
-                        move = "R";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (right[1, 2] == (int)Color.red)
-                    {
-                        move = "r";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                }
-                else
-                {
-                    move = "U";
-                    movement(move);
-                    MoveSet.Add(move);
-                }
-            }
-            else if (front[0, 1] == (int)Color.red || front[1, 0] == (int)Color.red || front[2, 1] == (int)Color.red || front[1, 2] == (int)Color.red)
-            {
-                if (upper[2, 1] != (int)Color.red)
-                {
-                    if (front[0, 1] == (int)Color.red)
-                    {
-                        move = "f";
-                        movement(move);
-                        MoveSet.Add(move);
-                        move = "l";
-                        movement(move);
-                        MoveSet.Add(move);
-                        move = "u";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (front[1, 0] == (int)Color.red)
-                    {
-                        move = "F";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (front[2, 1] == (int)Color.red)
-                    {
-                        move = "F";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                    else if (front[1, 2] == (int)Color.red)
-                    {
-                        move = "f";
-                        movement(move);
-                        MoveSet.Add(move);
-                    }
-                }
-                else
-                {
-                    move = "U";
-                    movement(move);
-                    MoveSet.Add(move);
-                }
-            }
-            else if (back[0, 1] == (int)Color.red || back[1, 0] == (int)Color.red || back[2, 1] == (int)Color.red || back[1, 2] == (int)Color.red)
-            {
-                if (upper[0, 1] != (int)Color.red)
-                {
-                    if (back[0, 1] == (int)Color.red)
-                    {
-                        move = "b";
-                        movement(move);
-                        MoveSet.Add(move);
                         move = "U";
                         movement(move);
                         MoveSet.Add(move);
-                        move = "r";
+                        move = "b";
                         movement(move);
                         MoveSet.Add(move);
                         move = "u";
                         movement(move);
                         MoveSet.Add(move);
-                    }
-                    else if (back[1, 0] == (int)Color.red)
+                      
+                     
+                    }else if(left[0, 1] != (int)Color.red){
+                    /*else*/ if ((left[1, 0] == (int)Color.red))
                     {
-                        move = "B";
-                        movement(move);
-                        MoveSet.Add(move);
-
+                        if (upper[1, 0] == (int)Color.red)
+                        {
+                            move = "U";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "L";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                    else if (back[2, 1] == (int)Color.red)
+                    else if ((left[2, 1] == (int)Color.red))
                     {
-                        move = "B";
-                        movement(move);
-                        MoveSet.Add(move);
-                        movement(move);
-                        MoveSet.Add(move);
-
+                        if (upper[1, 0] == (int)Color.red)
+                        {
+                            move = "U";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "L";
+                            movement(move);
+                            MoveSet.Add(move);
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                    else if (back[1, 2] == (int)Color.red)
+                    else if ((left[1, 2] == (int)Color.red))
                     {
-                        move = "b";
-                        movement(move);
-                        MoveSet.Add(move);
+                        if (upper[1, 0] == (int)Color.red)
+                        {
+                            move = "U";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else
+                        {
+                            move = "l";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
                     }
-                }
-                else
-                {
-                    move = "U";
-                    movement(move);
-                    MoveSet.Add(move);
-                }
-            }*/
+                    }
+                } else if ((front[0, 1] == (int)Color.red) || (front[1, 0] == (int)Color.red) || (front[2, 1] == (int)Color.red) || (front[1, 2] == (int)Color.red))
+                    {
+                        if (front[0, 1] == (int)Color.red)
+                        {
+                            move = "f";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "U";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "l";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "u";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else if (front[0, 1] != (int)Color.red)
+                        {
+                            if ((front[1, 0] == (int)Color.red))
+                            {
+                                if (upper[2, 1] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "F";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                            else if ((front[2, 1] == (int)Color.red))
+                            {
+                                if (upper[2, 1] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "F";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                            else if ((front[1, 2] == (int)Color.red))
+                            {
+                                if (upper[2, 1] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "f";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                        }
+                    }
+                    else if ((right[0, 1] == (int)Color.red) || (right[1, 0] == (int)Color.red) || (right[2, 1] == (int)Color.red) || (right[1, 2] == (int)Color.red))
+                    {
+                        if (right[0, 1] == (int)Color.red)
+                        {
+                            move = "r";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "U";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "f";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "u";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else if (right[0, 1] != (int)Color.red)
+                        {
+                            if ((right[1, 0] == (int)Color.red))
+                            {
+                                if (upper[1, 2] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "R";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                            else if ((right[2, 1] == (int)Color.red))
+                            {
+                                if (upper[1, 2] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "R";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                            else if ((right[1, 2] == (int)Color.red))
+                            {
+                                if (upper[1, 2] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "r";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                        }
+                    }
+                    else if ((back[0, 1] == (int)Color.red) || (back[1, 0] == (int)Color.red) || (back[2, 1] == (int)Color.red) || (back[1, 2] == (int)Color.red))
+                    {
+                        if (back[0, 1] == (int)Color.red)
+                        {
+                            move = "b";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "U";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "r";
+                            movement(move);
+                            MoveSet.Add(move);
+                            move = "u";
+                            movement(move);
+                            MoveSet.Add(move);
+                        }
+                        else if (back[0, 1] != (int)Color.red)
+                        {
+                            if ((back[1, 0] == (int)Color.red))
+                            {
+                                if (upper[0, 1] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "B";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                            else if ((back[2, 1] == (int)Color.red))
+                            {
+                                if (upper[0, 1] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "B";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                            else if ((back[1, 2] == (int)Color.red))
+                            {
+                                if (upper[0, 1] == (int)Color.red)
+                                {
+                                    move = "U";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                                else
+                                {
+                                    move = "b";
+                                    movement(move);
+                                    MoveSet.Add(move);
+                                }
+                            }
+                        }
+                    }			 
+				 			 
+				 			 
+			
 
+                }//HERE
+            }
             else
             {
                 phase = (int)Phase.first;
             }
 
-
         }
-
+                       
         public static void moveSetList()
         {
             foreach (string newMove in MoveSet)
@@ -604,7 +697,6 @@ namespace BreakCube
             }
 
         }
-
 
         static void Main(string[] args)
         {
