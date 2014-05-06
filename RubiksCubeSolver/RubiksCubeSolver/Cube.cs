@@ -49,7 +49,7 @@ namespace RubiksCubeSolver
                 position[i] = 0;
         }
         public Cubie(int pindex, Color c, int fi, int xi, int yi)
-        {
+        {   
             index = pindex;
             color = c;
 
@@ -58,9 +58,10 @@ namespace RubiksCubeSolver
                 adjacentColors[i] = (Color)0;
 
            position = new int[3];
-           position[0] = fi;
+           position = new int[] { fi, xi, yi };
+          /* position[0] = fi;
            position[1] = xi;
-           position[2] = yi;
+           position[2] = yi;*/
         }
 
         public override string ToString()

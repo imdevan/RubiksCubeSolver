@@ -4,3 +4,9 @@ C:\Users\aking3\Desktop\BreakCube\BreakCube\bin\Debug\BreakCube.exe
 C:\Users\aking3\Desktop\BreakCube\BreakCube\bin\Debug\BreakCube.pdb
 C:\Users\aking3\Desktop\BreakCube\BreakCube\obj\Debug\BreakCube.exe
 C:\Users\aking3\Desktop\BreakCube\BreakCube\obj\Debug\BreakCube.pdb
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\Solver\BreakCube\BreakCube\bin\Debug\BreakCube.exe.config
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\Solver\BreakCube\BreakCube\bin\Debug\BreakCube.exe
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\Solver\BreakCube\BreakCube\bin\Debug\BreakCube.pdb
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\Solver\BreakCube\BreakCube\obj\Debug\BreakCube.csprojResolveAssemblyReference.cache
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\Solver\BreakCube\BreakCube\obj\Debug\BreakCube.exe
+C:\Users\huapa_000\Documents\GitHub\RubiksCubeSolver\Solver\BreakCube\BreakCube\obj\Debug\BreakCube.pdb

@@ -1,55 +1,60 @@
-﻿
-//enum Color {white, yellow, blue, green, red, orange};
+﻿//enum Color {white, yellow, blue, green, red, orange};
 
 using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BreakCube
 {
-    class Program
+    internal class Program
     {
-        enum State { solved, unsolved };
-        enum Phase { first, second, third, fourth, fifth, sixth };
+        private enum State { solved, unsolved };
 
-        static int[,] upper = new int[3, 3] 	{{1,2,6},	//RED
+        private enum Phase { first, second, third, fourth, fifth, sixth };
+
+        private static int[,] upper = new int[3, 3] 	{{1,2,6},	//RED
 									     {5,1,1},
 										 {3,1,2}};
-        static int[,] left = new int[3, 3] 	{{3,1,6},	//BLUE
+
+        private static int[,] left = new int[3, 3] 	{{3,1,6},	//BLUE
 										 {5,2,4},
 									     {1,3,6}};
-        static int[,] front = new int[3, 3] 	{{4,3,1},	//WHITE
+
+        private static int[,] front = new int[3, 3] 	{{4,3,1},	//WHITE
 									     {1,3,3},
 									     {5,4,4}};
-        static int[,] right = new int[3, 3] 	{{5,2,5},	//GREEN
+
+        private static int[,] right = new int[3, 3] 	{{5,2,5},	//GREEN
 									     {6,4,2},
 									     {3,2,3}};
-        static int[,] back = new int[3, 3] 	{{4,6,2},	//YELLOW
+
+        private static int[,] back = new int[3, 3] 	{{4,6,2},	//YELLOW
 									     {3,5,6},
 									     {6,4,4}};
-        static int[,] down = new int[3, 3] 	{{2,6,1},	//ORANGE
-									{4,6,5},
-											 {5,5,2}};
 
-        static int[,] upper0 = new int[3, 3] 	{{upper[0,0],upper[0,1],upper[0,2]},
+        private static int[,] down = new int[3, 3] 	{{2,6,1},	//ORANGE
+									{4,6,5},
+										 {5,5,2}};
+
+        private static int[,] upper0 = new int[3, 3] 	{{upper[0,0],upper[0,1],upper[0,2]},
 											 {upper[1,0],upper[1,1],upper[1,2]},
 											 {upper[2,0],upper[2,1],upper[2,2]}};
-        static int[,] left0 = new int[3, 3] 	{{left[0,0],left[0,1],left[0,2]},
+
+        private static int[,] left0 = new int[3, 3] 	{{left[0,0],left[0,1],left[0,2]},
 											 {left[1,0],left[1,1],left[1,2]},
 											 {left[2,0],left[2,1],left[2,2]}};
-        static int[,] front0 = new int[3, 3] 	{{front[0,0],front[0,1],front[0,2]},
+
+        private static int[,] front0 = new int[3, 3] 	{{front[0,0],front[0,1],front[0,2]},
 											 {front[1,0],front[1,1],front[1,2]},
 											 {front[2,0],front[2,1],front[2,2]}};
-        static int[,] right0 = new int[3, 3] 	{{right[0,0],right[0,1],right[0,2]},
+
+        private static int[,] right0 = new int[3, 3] 	{{right[0,0],right[0,1],right[0,2]},
 											 {right[1,0],right[1,1],right[1,2]},
 											 {right[2,0],right[2,1],right[2,2]}};
-        static int[,] back0 = new int[3, 3] 	{{back[0,0],back[0,1],back[0,2]},
+
+        private static int[,] back0 = new int[3, 3] 	{{back[0,0],back[0,1],back[0,2]},
 											 {back[1,0],back[1,1],back[1,2]},
 											 {back[2,0],back[2,1],back[2,2]}};
-        static int[,] down0 = new int[3, 3] 	{{down[0,0],down[0,1],down[0,2]},
+
+        private static int[,] down0 = new int[3, 3] 	{{down[0,0],down[0,1],down[0,2]},
 											 {down[1,0],down[1,1],down[1,2]},
 											 {down[2,0],down[2,1],down[2,2]}};
 
@@ -63,7 +68,17 @@ namespace BreakCube
                 //case "RUN":
                 //state = (int)State.unsolved;
                 //break;
-
+                //==================================================================/
+                // Test Cases
+                //==================================================================/
+                case "testge":
+                    Console.Write("Input Cube Color and Adjacent Color no spaces \n > ");
+                    string userinput =  Console.ReadLine();
+                    int c = Convert.ToInt32(userinput[0].ToString());
+                    int ac = Convert.ToInt32(userinput[1].ToString());
+                    int  [] testIndex =  getEdge(c, ac);
+                    Console.WriteLine(string.Join(",", testIndex));
+                    break;
                 case "F":
                 case "0":
                     //CW rotation of FRONT face
@@ -263,7 +278,144 @@ namespace BreakCube
             down0[2, 0] = down[2, 0]; down0[2, 1] = down[2, 1]; down0[2, 2] = down[2, 2];
         }
 
-        static void Main(string[] args)
+        /*
+         * Checks Adjacent face of index [yi, xi]
+         * fi specifies which cube the index is on NOT the adjacent face
+         ******************************************/
+
+        private static int getAdjacentColor(int fi, int yi, int xi)
+        {
+            switch (fi)
+            {
+                case 1:
+                    // upper
+                    if (yi == 0 && xi == 1) return back[0, 1];
+                    if (yi == 1 && xi == 0) return left[0, 1];
+                    if (yi == 1 && xi == 2) return right[0, 1];
+                    if (yi == 2 && xi == 1) return front[0, 1];
+                    break;
+
+                case 2:
+                    // left
+                    if (yi == 0 && xi == 1) return upper[1, 0];
+                    if (yi == 1 && xi == 0) return back[1, 2];
+                    if (yi == 1 && xi == 2) return front[0, 1];
+                    if (yi == 2 && xi == 1) return down[1, 0];
+                    break;
+
+                case 3:
+                    // front
+                    if (yi == 0 && xi == 1) return upper[2, 1];
+                    if (yi == 1 && xi == 0) return left[1, 2];
+                    if (yi == 1 && xi == 2) return right[1, 0];
+                    if (yi == 2 && xi == 1) return down[0, 1];
+                    break;
+
+                case 4:
+                    // right
+                    if (yi == 0 && xi == 1) return upper[1, 2];
+                    if (yi == 1 && xi == 0) return front[1, 2];
+                    if (yi == 1 && xi == 2) return back[1, 0];
+                    if (yi == 2 && xi == 1) return down[1, 2];
+                    break;
+
+                case 5:
+                    // back
+                    if (yi == 0 && xi == 1) return upper[0, 1];
+                    if (yi == 1 && xi == 0) return right[1, 2];
+                    if (yi == 1 && xi == 2) return left[1, 0];
+                    if (yi == 2 && xi == 1) return down[2, 1];
+                    break;
+
+                case 6:
+                    // bottom
+                    if (yi == 0 && xi == 1) return front[2, 1];
+                    if (yi == 1 && xi == 0) return left[2, 1];
+                    if (yi == 1 && xi == 2) return right[2, 1];
+                    if (yi == 2 && xi == 1) return front[2, 1];
+                    break;
+
+                default:
+                    // default
+                    Console.WriteLine("Bad Face index sent to checkAdjacent()");
+                    break;
+            }
+            return 0;
+        }
+
+        /*
+         * Returns 1x3 int array of the [face, y, x] of a specified color and adjacent cube
+         * only works for edge NOT corner cubes
+         ******************************************/
+
+        public static int[] getEdge(int searchColor, int searchColorAdjacent)
+        {	//edge piece
+            // Returns [face, yindex, xindex]
+            int[] returnIndex;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (i == 0 && j == 0 || i == 1 && j == 1 || i == 2 && j == 2 || i == 0 && j == 2 || i == 2 && j == 0)
+                        continue;
+                    if (upper[i, j] == searchColor)
+                    {
+                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        {
+                            returnIndex = new int[] { 1, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (left[i, j] == searchColor)
+                    {
+                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        {
+                            returnIndex = new int[] { 2, i, j };
+                            return returnIndex;
+                        }
+                    }
+
+                    if (front[i, j] == searchColor)
+                    {
+                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        {
+                            returnIndex = new int[] { 3, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (right[i, j] == searchColor)
+                    {
+                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        {
+                            returnIndex = new int[] { 4, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (back[i, j] == searchColor)
+                    {
+                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        {
+                            returnIndex = new int[] { 5, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (down[i, j] == searchColor)
+                    {
+                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        {
+                            returnIndex = new int[] { 6, i, j };
+                            return returnIndex;
+                        }
+                    }
+                }
+            }
+            // The color was not found on the rubiks cube:
+            Console.WriteLine("no color found BAD CUBE INPUT -- ERROR LOCATION: cubeToSolveOnFace()");
+            return new int[] { 0, 0, 0 };
+        }
+
+        private static void Main(string[] args)
         {
             //string move;
             int state;
@@ -277,19 +429,19 @@ namespace BreakCube
 
             /*int [,] upper = new int[3,3] 	{{1,1,1},	//RED
                                              {1,1,1},
-                                             {1,1,1}};		
+                                             {1,1,1}};
             int [,] left = new int[3,3] 	{{2,2,2},	//BLUE
                                              {2,2,2},
-                                             {2,2,2}};		
+                                             {2,2,2}};
             int [,] front = new int[3,3] 	{{3,3,3},	//WHITE
                                              {3,3,3},
-                                             {3,3,3}};		
+                                             {3,3,3}};
             int [,] right = new int[3,3] 	{{4,4,4},	//GREEN
                                              {4,4,4},
-                                             {4,4,4}};	
+                                             {4,4,4}};
             int [,] back = new int[3,3] 	{{5,5,5},	//YELLOW
                                              {5,5,5},
-                                             {5,5,5}};		
+                                             {5,5,5}};
             int [,] down = new int[3,3] 	{{6,6,6},	//ORANGE
                                              {6,6,6},
                                              {6,6,6}};		*/
@@ -316,9 +468,7 @@ namespace BreakCube
             /*if (front[0, 1] != c && front[1, 0] != c && front[1, 1] != c && front[1, 2] != c && front[2, 1] != c)
             {
                 Console.Write("what?");
-
             }*/
-
 
             //PREVIOUS MOVE INDEX
             /*int [,] upper0 = new int[3,3]; 	//{{,,},{,,},{,,}};		//WHITE
@@ -328,24 +478,24 @@ namespace BreakCube
             int [,] back0 = new int[3,3]; 	//{{5,5,5}, {5,5,5},{5,5,5}};		//RED
             int [,] down0 = new int[3,3];	// {{6,6,6},{6,6,6},{6,6,6}};		//ORANGE*/
 
-           /*int[,] upper0 = new int[3, 3] 	{{upper[0,0],upper[0,1],upper[0,2]},
-											 {upper[1,0],upper[1,1],upper[1,2]},
-											 {upper[2,0],upper[2,1],upper[2,2]}};
-            int[,] left0 = new int[3, 3] 	{{left[0,0],left[0,1],left[0,2]},
-											 {left[1,0],left[1,1],left[1,2]},
-											 {left[2,0],left[2,1],left[2,2]}};
-            int[,] front0 = new int[3, 3] 	{{front[0,0],front[0,1],front[0,2]},
-											 {front[1,0],front[1,1],front[1,2]},
-											 {front[2,0],front[2,1],front[2,2]}};
-            int[,] right0 = new int[3, 3] 	{{right[0,0],right[0,1],right[0,2]},
-											 {right[1,0],right[1,1],right[1,2]},
-											 {right[2,0],right[2,1],right[2,2]}};
-            int[,] back0 = new int[3, 3] 	{{back[0,0],back[0,1],back[0,2]},
-											 {back[1,0],back[1,1],back[1,2]},
-											 {back[2,0],back[2,1],back[2,2]}};
-            int[,] down0 = new int[3, 3] 	{{down[0,0],down[0,1],down[0,2]},
-											 {down[1,0],down[1,1],down[1,2]},
-											 {down[2,0],down[2,1],down[2,2]}};*/
+            /*int[,] upper0 = new int[3, 3] 	{{upper[0,0],upper[0,1],upper[0,2]},
+                                              {upper[1,0],upper[1,1],upper[1,2]},
+                                              {upper[2,0],upper[2,1],upper[2,2]}};
+             int[,] left0 = new int[3, 3] 	{{left[0,0],left[0,1],left[0,2]},
+                                              {left[1,0],left[1,1],left[1,2]},
+                                              {left[2,0],left[2,1],left[2,2]}};
+             int[,] front0 = new int[3, 3] 	{{front[0,0],front[0,1],front[0,2]},
+                                              {front[1,0],front[1,1],front[1,2]},
+                                              {front[2,0],front[2,1],front[2,2]}};
+             int[,] right0 = new int[3, 3] 	{{right[0,0],right[0,1],right[0,2]},
+                                              {right[1,0],right[1,1],right[1,2]},
+                                              {right[2,0],right[2,1],right[2,2]}};
+             int[,] back0 = new int[3, 3] 	{{back[0,0],back[0,1],back[0,2]},
+                                              {back[1,0],back[1,1],back[1,2]},
+                                              {back[2,0],back[2,1],back[2,2]}};
+             int[,] down0 = new int[3, 3] 	{{down[0,0],down[0,1],down[0,2]},
+                                              {down[1,0],down[1,1],down[1,2]},
+                                              {down[2,0],down[2,1],down[2,2]}};*/
 
             while (true)
             {
@@ -357,27 +507,26 @@ namespace BreakCube
                     state = (int)State.unsolved;
                     while (state == (int)State.unsolved)
                     {
-
                         /*upper0[0,0] = upper[0,0];	upper0[1,2] = upper[1,2];	upper0[2,2] = upper[2,2];
                         upper0[0,0] = upper[0,0];	upper0[1,1] = upper[1,1];	upper0[2,1] = upper[2,1];
                         upper0[0,0] = upper[0,0];	upper0[1,0] = upper[1,0];	upper0[2,0] = upper[2,0];
-			
+
                         left0[0,0] = left[0,0];		left0[1,2] = left[1,2];		left0[2,2] = left[2,2];
                         left0[0,0] = left[0,0];		left0[1,1] = left[1,1];		left0[2,1] = left[2,1];
                         left0[0,0] = left[0,0];		left0[1,0] = left[1,0];		left0[2,0] = left[2,0];
-			
+
                         front0[0,0] = front[0,0];	front0[1,2] = front[1,2];	front0[2,2] = front[2,2];
                         front0[0,0] = front[0,0];	front0[1,1] = front[1,1];	front0[2,1] = front[2,1];
                         front0[0,0] = front[0,0];	front0[1,0] = front[1,0];	front0[2,0] = front[2,0];
-			
+
                         right0[0,0] = right[0,0];	right0[1,2] = right[1,2];	right0[2,2] = right[2,2];
                         right0[0,0] = right[0,0];	right0[1,1] = right[1,1];	right0[2,1] = right[2,1];
                         right0[0,0] = right[0,0];	right0[1,0] = right[1,0];	right0[2,0] = right[2,0];
-			
+
                         back0[0,0] = back[0,0];		back0[1,2] = back[1,2];		back0[2,2] = back[2,2];
                         back0[0,0] = back[0,0];		back0[1,1] = back[1,1];		back0[2,1] = back[2,1];
                         back0[0,0] = back[0,0];		back0[1,0] = back[1,0];		back0[2,0] = back[2,0];
-			
+
                         down0[0,0] = down[0,0];		down0[1,2] = down[1,2];		down0[2,2] = down[2,2];
                         down0[0,0] = down[0,0];		down0[1,1] = down[1,1];		down0[2,1] = down[2,1];
                         down0[0,0] = down[0,0];		down0[1,0] = down[1,0];		down0[2,0] = down[2,0];*/
@@ -425,7 +574,6 @@ namespace BreakCube
                         Console.WriteLine();
                         Console.WriteLine();
 
-
                         Console.Write("What move would you like to make?");
                         Console.WriteLine();
                         string move = Console.ReadLine();
@@ -436,27 +584,21 @@ namespace BreakCube
                             Console.Write("What move would you like to make?");
                             Console.WriteLine();
                             move = Console.ReadLine();
-						
-						
                         }*/
-
 
                         /*Console.Write("What move would you like to make?");
                         Console.WriteLine();
                         move = Console.ReadLine();*/
 
-                        /*upper0 = {{upper[0,0],upper[1,0],upper[2,0]},{upper[0,1],upper[1,1],upper[2,1]},{upper[0,2],upper[1,2],upper[2,2]}}; 		
-                        left0 = {{left[0,0],left[1,0],left[2,0]},{left[0,1],left[1,1],left[2,1]},{left[0,2],left[1,2],left[2,2]}};  			
-                        front0 = {{front[0,0],front[1,0],front[2,0]},{front[0,1],front[1,1],front[2,1]},{front[0,2],front[1,2],front[2,2]}};		
-                        right0 = {{right[0,0],right[1,0],right[2,0]},{right[0,1],right[1,1],right[2,1]},{right[0,2],right[1,2],right[2,2]}}; 	
-                        back0 = {{back[0,0],back[1,0],back[2,0]},{back[0,1],back[1,1],back[2,1]},{back[0,2],back[1,2],back[2,2]}}; 			
+                        /*upper0 = {{upper[0,0],upper[1,0],upper[2,0]},{upper[0,1],upper[1,1],upper[2,1]},{upper[0,2],upper[1,2],upper[2,2]}};
+                        left0 = {{left[0,0],left[1,0],left[2,0]},{left[0,1],left[1,1],left[2,1]},{left[0,2],left[1,2],left[2,2]}};
+                        front0 = {{front[0,0],front[1,0],front[2,0]},{front[0,1],front[1,1],front[2,1]},{front[0,2],front[1,2],front[2,2]}};
+                        right0 = {{right[0,0],right[1,0],right[2,0]},{right[0,1],right[1,1],right[2,1]},{right[0,2],right[1,2],right[2,2]}};
+                        back0 = {{back[0,0],back[1,0],back[2,0]},{back[0,1],back[1,1],back[2,1]},{back[0,2],back[1,2],back[2,2]}};
                         down0 = {{down[0,0],down[1,0],down[2,0]},{down[0,1],down[1,1],down[2,1]},{down[0,2],down[1,2],down[2,2]}};	*/
 
                         //insert moves HERE
 
-                        
-
-                        
                         /*rubiks.Close();*/
                     }	//"unsolved" while loop
                 } if (response == "no")
@@ -471,9 +613,6 @@ namespace BreakCube
                     response = Console.ReadLine();
                 }
             }
-
         }
     }
 }
-
-
