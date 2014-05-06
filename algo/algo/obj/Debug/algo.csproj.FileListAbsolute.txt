@@ -1,0 +1,5 @@
+E:\algo\algo\bin\Debug\algo.exe.config
+E:\algo\algo\bin\Debug\algo.exe
+E:\algo\algo\bin\Debug\algo.pdb
+E:\algo\algo\obj\Debug\algo.exe
+E:\algo\algo\obj\Debug\algo.pdb
