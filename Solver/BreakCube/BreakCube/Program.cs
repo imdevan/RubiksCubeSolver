@@ -76,8 +76,17 @@ namespace BreakCube
                     string userinput =  Console.ReadLine();
                     int c = Convert.ToInt32(userinput[0].ToString());
                     int ac = Convert.ToInt32(userinput[1].ToString());
-                    int  [] testIndex =  getEdge(c, ac);
+                    int  [] testIndex =  GetEdge(c, ac);
                     Console.WriteLine(string.Join(",", testIndex));
+                    break;
+                case "testgc":
+                    Console.Write("Input Cube Color and Adjacent Color Set no spaces \n > ");
+                    string userinput2 = Console.ReadLine();
+                    int c2 = Convert.ToInt32(userinput2[0].ToString());
+                    int ac1 = Convert.ToInt32(userinput2[1].ToString());
+                    int ac2 = Convert.ToInt32(userinput2[2].ToString());
+                    int[] testIndex2 = GetCorner(c2, new int[]{ac1, ac2});
+                    Console.WriteLine(string.Join(",", testIndex2));
                     break;
                 case "F":
                 case "0":
@@ -283,16 +292,16 @@ namespace BreakCube
          * fi specifies which cube the index is on NOT the adjacent face
          ******************************************/
 
-        private static int getAdjacentColor(int fi, int yi, int xi)
+        private static int GetAdjacentColor(int fi, int yi, int xi)
         {
             switch (fi)
             {
                 case 1:
                     // upper
-                    if (yi == 0 && xi == 1) return back[0, 1];
-                    if (yi == 1 && xi == 0) return left[0, 1];
-                    if (yi == 1 && xi == 2) return right[0, 1];
-                    if (yi == 2 && xi == 1) return front[0, 1];
+                    if (yi == 0 && xi == 1) return back[0, 1];  // top 
+                    if (yi == 1 && xi == 0) return left[0, 1];  // left
+                    if (yi == 1 && xi == 2) return right[0, 1]; // right
+                    if (yi == 2 && xi == 1) return front[0, 1]; // bottom
                     break;
 
                 case 2:
@@ -348,7 +357,7 @@ namespace BreakCube
          * only works for edge NOT corner cubes
          ******************************************/
 
-        public static int[] getEdge(int searchColor, int searchColorAdjacent)
+        public static int[] GetEdge(int searchColor, int searchColorAdjacent)
         {	//edge piece
             // Returns [face, yindex, xindex]
             int[] returnIndex;
@@ -357,11 +366,13 @@ namespace BreakCube
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (i == 0 && j == 0 || i == 1 && j == 1 || i == 2 && j == 2 || i == 0 && j == 2 || i == 2 && j == 0)
+                    // Do not check corners.
+                    if ((i == 0 && j == 0 )|| (i == 1 && j == 1 )||( i == 2 && j == 2) || (i == 0 && j == 2) || (i == 2 && j == 0))
                         continue;
+
                     if (upper[i, j] == searchColor)
                     {
-                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        if (GetAdjacentColor(1, i, j) == searchColorAdjacent)
                         {
                             returnIndex = new int[] { 1, i, j };
                             return returnIndex;
@@ -369,7 +380,7 @@ namespace BreakCube
                     }
                     if (left[i, j] == searchColor)
                     {
-                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        if (GetAdjacentColor(2, i, j) == searchColorAdjacent)
                         {
                             returnIndex = new int[] { 2, i, j };
                             return returnIndex;
@@ -378,7 +389,7 @@ namespace BreakCube
 
                     if (front[i, j] == searchColor)
                     {
-                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        if (GetAdjacentColor(3, i, j) == searchColorAdjacent)
                         {
                             returnIndex = new int[] { 3, i, j };
                             return returnIndex;
@@ -386,7 +397,7 @@ namespace BreakCube
                     }
                     if (right[i, j] == searchColor)
                     {
-                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        if (GetAdjacentColor(4, i, j) == searchColorAdjacent)
                         {
                             returnIndex = new int[] { 4, i, j };
                             return returnIndex;
@@ -394,7 +405,7 @@ namespace BreakCube
                     }
                     if (back[i, j] == searchColor)
                     {
-                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        if (GetAdjacentColor(5, i, j) == searchColorAdjacent)
                         {
                             returnIndex = new int[] { 5, i, j };
                             return returnIndex;
@@ -402,7 +413,7 @@ namespace BreakCube
                     }
                     if (down[i, j] == searchColor)
                     {
-                        if (getAdjacentColor(1, i, j) == searchColorAdjacent)
+                        if (GetAdjacentColor(6, i, j) == searchColorAdjacent)
                         {
                             returnIndex = new int[] { 6, i, j };
                             return returnIndex;
@@ -411,10 +422,147 @@ namespace BreakCube
                 }
             }
             // The color was not found on the rubiks cube:
-            Console.WriteLine("no color found BAD CUBE INPUT -- ERROR LOCATION: cubeToSolveOnFace()");
+            Console.WriteLine("no color found BAD CUBE INPUT -- ERROR LOCATION: GetEdge()");
             return new int[] { 0, 0, 0 };
         }
 
+        /*
+         * Returns the two adjacent colors of a corner
+         * { left adjacent color, right adjacent color }
+         * ******************************************************************/
+        private static int [] GetAdjacentColorSet(int fi, int yi, int xi)
+        {
+            switch (fi)
+            {
+                case 1:
+                    // upper
+                    if (yi == 0 && xi == 0) return new int[] { left[0, 0], back[0, 2] };    // top left
+                    if (yi == 0 && xi == 2) return new int[] { back[0, 0], right[0, 2] };   // top right
+                    if (yi == 2 && xi == 0) return new int[] { front[0, 0], left[0, 2] };   // bottom left
+                    if (yi == 2 && xi == 2) return new int[] { right[0, 0], front[0, 2] };  // bottom right
+                    break;
+
+                case 2:
+                    // left
+                    if (yi == 0 && xi == 0) return new int[] { back[0, 2], upper[0, 0] };    // top left
+                    if (yi == 0 && xi == 2) return new int[] { upper[2, 0], front[0, 0] };   // top right
+                    if (yi == 2 && xi == 0) return new int[] { down[2, 0], back[2, 2] };   // bottom left
+                    if (yi == 2 && xi == 2) return new int[] { front[2, 0], down[0, 0] };  // bottom right
+                    break;
+
+                case 3:
+                    // front
+                    if (yi == 0 && xi == 0) return new int[] { left[0, 2], upper[2, 0] };    // top left
+                    if (yi == 0 && xi == 2) return new int[] { upper[2,2], right[0, 0] };   // top right
+                    if (yi == 2 && xi == 0) return new int[] { down[0, 0], left[2, 2] };   // bottom left
+                    if (yi == 2 && xi == 2) return new int[] { right[2, 0], down[0, 2] };  // bottom right
+                    break;
+
+                case 4:
+                    // right
+                    if (yi == 0 && xi == 0) return new int[] { front[2,0], upper[2, 2] };    // top left
+                    if (yi == 0 && xi == 2) return new int[] { upper[0, 2], back[0, 0] };   // top right
+                    if (yi == 2 && xi == 0) return new int[] { down[0, 2], front[2, 2] };   // bottom left
+                    if (yi == 2 && xi == 2) return new int[] { back[2, 0], down[2, 2] };  // bottom right
+                    break;
+
+                case 5:
+                    // back
+                    if (yi == 0 && xi == 0) return new int[] { right[0,2], upper[0, 2] };    // top left
+                    if (yi == 0 && xi == 2) return new int[] { upper[0, 0], left[0, 0] };   // top right
+                    if (yi == 2 && xi == 0) return new int[] { down[0, 2], right[2, 2] };   // bottom left
+                    if (yi == 2 && xi == 2) return new int[] { down[2, 0], left[2, 0] };  // bottom right
+                    break;
+
+                case 6:
+                    // bottom
+                    if (yi == 0 && xi == 0) return new int[] { left[2,2], front[2, 0] };    // top left
+                    if (yi == 0 && xi == 2) return new int[] { front[2,2], right[2,0] };   // top right
+                    if (yi == 2 && xi == 0) return new int[] { back[2,2], left[2,0] };   // bottom left
+                    if (yi == 2 && xi == 2) return new int[] {  right[2,2],  back[2, 0] };  // bottom right
+                    break;
+
+                default:
+                    // default
+                    Console.WriteLine("Bad Face index sent to checkAdjacentSet()");
+                    break;
+            }
+            return new int[]{0,0};
+        }
+
+        private static int[] GetCorner(int searchColor, int[] adjacentColorSet)
+        {
+            int[] returnIndex;
+            Console.WriteLine(string.Join(",", adjacentColorSet));
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    // Do not check edges. 01,10,21,12
+                    if ((i == 0 && j == 1) || (i == 1 && j == 1) || (i == 1 && j == 0) || (i == 1 && j == 2) || (i == 2 && j == 1))
+                        continue;
+
+                    if (upper[i, j] == searchColor)
+                    {
+                        int[] test = GetAdjacentColorSet(1, i, j);
+                        if (test[0] == adjacentColorSet[0] && test[1] == adjacentColorSet[1])
+                        {
+                            returnIndex = new int[] { 1, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (left[i, j] == searchColor)
+                    {
+                        int[] test = GetAdjacentColorSet(2, i, j);
+                        if (test[0] == adjacentColorSet[0] && test[1] == adjacentColorSet[1])
+                        {
+                            returnIndex = new int[] { 2, i, j };
+                            return returnIndex;
+                        }
+                    }
+
+                    if (front[i, j] == searchColor)
+                    {
+                        int[] test = GetAdjacentColorSet(3, i, j);
+                        if (test[0] == adjacentColorSet[0] && test[1] == adjacentColorSet[1])
+                        {
+                            returnIndex = new int[] { 3, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (right[i, j] == searchColor)
+                    {
+                        int[] test = GetAdjacentColorSet(4, i, j);
+                        if (test[0] == adjacentColorSet[0] && test[1] == adjacentColorSet[1])
+                        {
+                            returnIndex = new int[] { 4, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (back[i, j] == searchColor)
+                    {
+                        int[] test = GetAdjacentColorSet(5, i, j);
+                        if (test[0] == adjacentColorSet[0] && test[1] == adjacentColorSet[1])
+                        {
+                            returnIndex = new int[] { 5, i, j };
+                            return returnIndex;
+                        }
+                    }
+                    if (down[i, j] == searchColor)
+                    {
+                        int[] test = GetAdjacentColorSet(3, i, j);
+                        if (test[0] == adjacentColorSet[0] && test[1] == adjacentColorSet[1])
+                        {
+                            returnIndex = new int[] { 6, i, j };
+                            return returnIndex;
+                        }
+                    }
+                }
+            }
+            // The color was not found on the rubiks cube:
+            Console.WriteLine("no color found BAD CUBE INPUT -- ERROR LOCATION: GetCorner()");
+            return new int[] { 0, 0, 0 };
+        }
         private static void Main(string[] args)
         {
             //string move;
