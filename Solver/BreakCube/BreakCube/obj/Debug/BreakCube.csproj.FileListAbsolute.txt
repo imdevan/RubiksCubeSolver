@@ -1,0 +1,6 @@
+C:\Users\aking3\Desktop\BreakCube\BreakCube\bin\Debug\BreakCube.exe.config
+C:\Users\aking3\Desktop\BreakCube\BreakCube\obj\Debug\BreakCube.csprojResolveAssemblyReference.cache
+C:\Users\aking3\Desktop\BreakCube\BreakCube\bin\Debug\BreakCube.exe
+C:\Users\aking3\Desktop\BreakCube\BreakCube\bin\Debug\BreakCube.pdb
+C:\Users\aking3\Desktop\BreakCube\BreakCube\obj\Debug\BreakCube.exe
+C:\Users\aking3\Desktop\BreakCube\BreakCube\obj\Debug\BreakCube.pdb

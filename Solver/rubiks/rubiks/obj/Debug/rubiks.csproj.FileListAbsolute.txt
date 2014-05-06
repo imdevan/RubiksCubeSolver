@@ -1,0 +1,12 @@
+C:\Users\aking3\Desktop\rubiks\rubiks\bin\Debug\rubiks.exe.config
+C:\Users\aking3\Desktop\rubiks\rubiks\obj\Debug\rubiks.csprojResolveAssemblyReference.cache
+C:\Users\aking3\Desktop\rubiks\rubiks\bin\Debug\rubiks.exe
+C:\Users\aking3\Desktop\rubiks\rubiks\bin\Debug\rubiks.pdb
+C:\Users\aking3\Desktop\rubiks\rubiks\obj\Debug\rubiks.exe
+C:\Users\aking3\Desktop\rubiks\rubiks\obj\Debug\rubiks.pdb
+E:\Solver\rubiks\rubiks\bin\Debug\rubiks.exe.config
+E:\Solver\rubiks\rubiks\obj\Debug\rubiks.exe
+E:\Solver\rubiks\rubiks\obj\Debug\rubiks.pdb
+E:\Solver\rubiks\rubiks\bin\Debug\rubiks.exe
+E:\Solver\rubiks\rubiks\bin\Debug\rubiks.pdb
+E:\Solver\rubiks\rubiks\obj\Debug\rubiks.csprojResolveAssemblyReference.cache
