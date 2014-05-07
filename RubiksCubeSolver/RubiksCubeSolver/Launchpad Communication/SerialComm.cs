@@ -13,7 +13,7 @@ namespace RubiksCubeSolver
           {
                Debug = 0,
                Robot,
-               Cube,
+               RobotConfig
           };
        
           // Serial Port we are using
@@ -71,7 +71,7 @@ namespace RubiksCubeSolver
                     // Attempt to write message
                     if (_Port.Write(serialMessage))
                     {
-                         // If successful, start timeout
+                         // If sucessful, start timeout
                          _Timer.Interval = Timeout;
                          _Timer.Start();
                          // Loop while we wait for a response or timeout
@@ -140,7 +140,11 @@ namespace RubiksCubeSolver
                // Stuff command in payload
                byte[] rawMessage = new byte[Message.Length + 1];
                rawMessage[0] = (byte)Command;
-               Array.Copy(rawMessage, 1, Message, 0, Message.Length);
+               //Array.Copy(rawMessage, 1, Message, 0, Message.Length);
+               for (int i = 0; i < Message.Length; i++)
+               {
+                    rawMessage[i + 1] = Message[i];
+               }
                // Send to framer to create full message
                return _Framer.FrameMessage(rawMessage); 
           }

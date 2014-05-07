@@ -12,6 +12,7 @@ namespace RubiksCubeSolver
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static SerialComm comm;
         [STAThread]
         static void Main()
         {
@@ -20,7 +21,7 @@ namespace RubiksCubeSolver
 
             /* Serial Communicator
              * ***********************************************************/
-            SerialComm comm = new SerialComm();
+            comm = new SerialComm();
             string comPort;
             foreach (string s in Serial.GetAvailablePorts())
             {
@@ -42,9 +43,8 @@ namespace RubiksCubeSolver
                 Console.WriteLine("Sending message...");
                 UInt16 time = 50;
                 // Send a debug message, with payload in "message", and timeout after 5000 milliseconds
-                comm.Send(SerialComm.SerialCommand.Debug, message, time);
+                comm.Send(SerialComm.SerialCommand.Debug, message, time);   
                 comm.Send(SerialComm.SerialCommand.Robot, message, time);
-                comm.ClosePort();
                 Console.WriteLine("COM Port closed. ");
             }
 
@@ -60,6 +60,7 @@ namespace RubiksCubeSolver
             Application.Run(new rubiksCubeInterfaceForm());
 
 
+            comm.ClosePort();
 
         }
     }

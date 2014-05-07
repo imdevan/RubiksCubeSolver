@@ -100,7 +100,7 @@ namespace RubiksCubeSolver
             // 
             // formWrapper.Panel2
             // 
-            this.formWrapper.Panel2.AccessibleName = "armCallobrationWrapper";
+            this.formWrapper.Panel2.AccessibleName = "armCalibrationWrapper";
             this.formWrapper.Panel2.Controls.Add(this.armCallobrationWrapper);
             this.formWrapper.Size = new System.Drawing.Size(774, 529);
             this.formWrapper.SplitterDistance = 580;
@@ -393,7 +393,7 @@ namespace RubiksCubeSolver
             this.armCallobrationLabel.Name = "armCallobrationLabel";
             this.armCallobrationLabel.Size = new System.Drawing.Size(192, 29);
             this.armCallobrationLabel.TabIndex = 0;
-            this.armCallobrationLabel.Text = "Arm Callobration";
+            this.armCallobrationLabel.Text = "Arm Calibration";
             this.armCallobrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1

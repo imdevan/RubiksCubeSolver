@@ -148,12 +148,31 @@ namespace RubiksCubeSolver
             // Right Arm Close Config Input
             byte cValue = Convert.ToByte(label2.Text);
 
+            // Set message to send to robot
+            byte[] message = new byte[]{ (byte)Arm.Right, 1, 1 };
+
+            // Calibrate cValue times
+            for (int i =0; i < cValue;  cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
+
+
+
         }
         private void rightArmCloseConfigMinusClick(object sender, EventArgs e)
         {
             // Right Arm Close Config Input
             byte cValue = Convert.ToByte(label2.Text);
 
+            // Set message to send to robot
+            byte[] message = new byte[] { (byte)Arm.Right, 1, 0 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
         }
 
 
@@ -163,13 +182,28 @@ namespace RubiksCubeSolver
             // Right Arm Rotate Config Input
             byte cValue = Convert.ToByte(label3.Text);
 
+            // clockwise 0
+            byte[] message = new byte[] { (byte)Arm.Right, 0, 0 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
         }
         private void rightArmRotateConfigMinusClick(object sender, EventArgs e)
         {
             // Right Arm Rotate Config Input
             byte cValue = Convert.ToByte(label3.Text);
 
-            
+            // counterclockwise 0
+            byte[] message = new byte[] { (byte)Arm.Right, 0, 1 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }            
         }
 
 
@@ -179,11 +213,30 @@ namespace RubiksCubeSolver
             // left Arm Close Config Input
             byte cValue = Convert.ToByte(label4.Text);
 
+            // Set message to send to robot
+            byte[] message = new byte[] { (byte)Arm.Left, 1, 1 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
+
         }
         private void leftArmCloseConfigMinusClick(object sender, EventArgs e)
         {
             // left Arm Close Config Input
             byte cValue = Convert.ToByte(label4.Text);
+
+            // Set message to send to robot
+            byte[] message = new byte[] { (byte)Arm.Left, 1, 0 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
+
 
         }
 
@@ -194,12 +247,29 @@ namespace RubiksCubeSolver
             // left Arm Rotate Config Input
             byte cValue = Convert.ToByte(label5.Text);
 
+            // clockwise 0
+            byte[] message = new byte[] { (byte)Arm.Left, 0, 0 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
+
         }
         private void leftArmRotateConfigMinusClick(object sender, EventArgs e)
         {
             // left Arm Rotate Config Input
             byte cValue = Convert.ToByte(label5.Text);
 
+            // clockwise 0
+            byte[] message = new byte[] { (byte)Arm.Left, 0, 0 };
+
+            // Calibrate cValue times
+            for (int i = 0; i < cValue; cValue--)
+            {
+                Program.comm.Send(SerialComm.SerialCommand.RobotConfig, message, 1000);
+            }
         }
 
 
