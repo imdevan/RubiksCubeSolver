@@ -40,7 +40,7 @@ namespace RubiksCubeSolver
             this.yellowButton = new System.Windows.Forms.Button();
             this.orangeButton = new System.Windows.Forms.Button();
             this.solveButton = new System.Windows.Forms.Button();
-            this.rubiksCubeLog = new System.Windows.Forms.ListBox();
+            //this.rubiksCubeLog = new System.Windows.Forms.ListBox();
             this.armCallobrationWrapper = new System.Windows.Forms.SplitContainer();
             this.armCallobrationLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -123,7 +123,7 @@ namespace RubiksCubeSolver
             // 
             this.splitContainer2.Panel2.AccessibleName = "rubiksCubeLogWrapper";
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.CadetBlue;
-            this.splitContainer2.Panel2.Controls.Add(this.rubiksCubeLog);
+            //this.splitContainer2.Panel2.Controls.Add(this.rubiksCubeLog);
             this.splitContainer2.Size = new System.Drawing.Size(580, 529);
             this.splitContainer2.SplitterDistance = 396;
             this.splitContainer2.TabIndex = 0;
@@ -136,7 +136,7 @@ namespace RubiksCubeSolver
             this.rubiksCubeWrapper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.rubiksCubeWrapper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.rubiksCubeWrapper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.rubiksCubeWrapper.Controls.Add(this.brushButtonPanel, 3, 0);
+            this.rubiksCubeWrapper.Controls.Add(this.brushButtonPanel, 2, 0);
             this.rubiksCubeWrapper.Controls.Add(this.solveButton, 3, 2);
             this.rubiksCubeWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rubiksCubeWrapper.Location = new System.Drawing.Point(0, 0);
@@ -355,13 +355,13 @@ namespace RubiksCubeSolver
             // 
             // rubiksCubeLog
             // 
-            this.rubiksCubeLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rubiksCubeLog.FormattingEnabled = true;
-            this.rubiksCubeLog.ItemHeight = 25;
-            this.rubiksCubeLog.Location = new System.Drawing.Point(0, 0);
-            this.rubiksCubeLog.Name = "rubiksCubeLog";
-            this.rubiksCubeLog.Size = new System.Drawing.Size(580, 129);
-            this.rubiksCubeLog.TabIndex = 0;
+            //this.rubiksCubeLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.rubiksCubeLog.FormattingEnabled = true;
+            //this.rubiksCubeLog.ItemHeight = 25;
+            //this.rubiksCubeLog.Location = new System.Drawing.Point(0, 0);
+            //this.rubiksCubeLog.Name = "rubiksCubeLog";
+            //this.rubiksCubeLog.Size = new System.Drawing.Size(580, 129);
+            //this.rubiksCubeLog.TabIndex = 0;
             // 
             // armCallobrationWrapper
             // 
@@ -737,7 +737,7 @@ namespace RubiksCubeSolver
         private System.Windows.Forms.TableLayoutPanel rubiksCubeWrapper;
         private System.Windows.Forms.SplitContainer armCallobrationWrapper;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox rubiksCubeLog;
+        //private System.Windows.Forms.ListBox rubiksCubeLog;
         private System.Windows.Forms.Label armCallobrationLabel;
         private System.Windows.Forms.TableLayoutPanel brushButtonPanel;
         private System.Windows.Forms.Button whiteButton;

@@ -175,6 +175,8 @@ namespace RubiksCubeSolver
             }
         }
 
+        // chromio
+        // kavinski 
 
         // Right Arm Rotate
         private void rightArmRotateConfigPlusClick(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /**********************************************************************************************************************************************
  * Notes:
@@ -251,6 +252,10 @@ namespace RubiksCubeSolver
             resetPosition();
         }
 
+        public static void ExecuteMoveList(List<string> MoveSet)
+        {
+            // execute moveset
+        } 
         public static void resetPosition()
         {
         }
