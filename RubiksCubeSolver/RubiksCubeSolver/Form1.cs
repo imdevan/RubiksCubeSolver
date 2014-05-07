@@ -74,10 +74,6 @@ namespace RubiksCubeSolver
 
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            
-        }
 
         private void ClickHandler(object sender, System.EventArgs e)
         {
@@ -140,9 +136,72 @@ namespace RubiksCubeSolver
 
         }
 
-        //private void SendCubeToSolver()
-        //{
-        //    // TODO:
-        //}
+       
+        
+        /**********************************************************************************************************************************************
+        * Calibration button callbacks.
+        * *********************************************************************************************************************************************/
+
+        // Right Arm Close
+        private void rightArmCloseConfigPlusClick(object sender, EventArgs e)
+        {
+            // Right Arm Close Config Input
+            byte cValue = Convert.ToByte(label2.Text);
+
+        }
+        private void rightArmCloseConfigMinusClick(object sender, EventArgs e)
+        {
+            // Right Arm Close Config Input
+            byte cValue = Convert.ToByte(label2.Text);
+
+        }
+
+
+        // Right Arm Rotate
+        private void rightArmRotateConfigPlusClick(object sender, EventArgs e)
+        {
+            // Right Arm Rotate Config Input
+            byte cValue = Convert.ToByte(label3.Text);
+
+        }
+        private void rightArmRotateConfigMinusClick(object sender, EventArgs e)
+        {
+            // Right Arm Rotate Config Input
+            byte cValue = Convert.ToByte(label3.Text);
+
+            
+        }
+
+
+        // Left Arm Close
+        private void leftArmCloseConfigPlusClick(object sender, EventArgs e)
+        {
+            // left Arm Close Config Input
+            byte cValue = Convert.ToByte(label4.Text);
+
+        }
+        private void leftArmCloseConfigMinusClick(object sender, EventArgs e)
+        {
+            // left Arm Close Config Input
+            byte cValue = Convert.ToByte(label4.Text);
+
+        }
+
+
+        // Left Arm Rotate
+        private void leftArmRotateConfigPlusClick(object sender, EventArgs e)
+        {
+            // left Arm Rotate Config Input
+            byte cValue = Convert.ToByte(label5.Text);
+
+        }
+        private void leftArmRotateConfigMinusClick(object sender, EventArgs e)
+        {
+            // left Arm Rotate Config Input
+            byte cValue = Convert.ToByte(label5.Text);
+
+        }
+
+
     }
 }

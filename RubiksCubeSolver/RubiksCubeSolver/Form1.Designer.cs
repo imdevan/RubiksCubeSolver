@@ -46,22 +46,22 @@ namespace RubiksCubeSolver
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rightArmCallobrationPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.TextBox();
             this.leftArmCallobrationPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.leftArmCallobrationLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -261,7 +261,6 @@ namespace RubiksCubeSolver
             this.brushButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.brushButtonPanel.Size = new System.Drawing.Size(139, 126);
             this.brushButtonPanel.TabIndex = 0;
-            this.brushButtonPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // blueButton
             // 
@@ -414,7 +413,6 @@ namespace RubiksCubeSolver
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(190, 462);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
             // 
             // rightArmCallobrationPanel
             // 
@@ -434,7 +432,6 @@ namespace RubiksCubeSolver
             this.rightArmCallobrationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.rightArmCallobrationPanel.Size = new System.Drawing.Size(180, 146);
             this.rightArmCallobrationPanel.TabIndex = 1;
-            this.rightArmCallobrationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightArmCallobrationPanel_Paint);
             // 
             // tableLayoutPanel4
             // 
@@ -460,32 +457,32 @@ namespace RubiksCubeSolver
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(59, 0);
-            this.label3.Name = "label3";
+            this.label3.Name = "rightArmRotateConfigInput";
             this.label3.Size = new System.Drawing.Size(50, 42);
             this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Text = "10";
             // 
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
+            this.button3.Name = "rightArmRotateConfigPlus";
             this.button3.Size = new System.Drawing.Size(50, 36);
             this.button3.TabIndex = 1;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.rightArmRotateConfigPlusClick);
             // 
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.Location = new System.Drawing.Point(115, 3);
-            this.button4.Name = "button4";
+            this.button4.Name = "rightArmRotateConfigMinus";
             this.button4.Size = new System.Drawing.Size(52, 36);
             this.button4.TabIndex = 2;
             this.button4.Text = "-";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.button4.Click += new System.EventHandler(this.rightArmRotateConfigMinusClick);
             // 
             // label1
             // 
@@ -520,21 +517,23 @@ namespace RubiksCubeSolver
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
+            this.button1.Name = "rightArmCloseConfigPlus";
             this.button1.Size = new System.Drawing.Size(50, 35);
             this.button1.TabIndex = 2;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.rightArmCloseConfigPlusClick);
             // 
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.Location = new System.Drawing.Point(115, 3);
-            this.button2.Name = "button2";
+            this.button2.Name = "rightArmCloseConfigMinus";
             this.button2.Size = new System.Drawing.Size(52, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "-";
             this.button2.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.rightArmCloseConfigMinusClick);
             // 
             // label2
             // 
@@ -542,11 +541,10 @@ namespace RubiksCubeSolver
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(59, 0);
-            this.label2.Name = "label2";
+            this.label2.Name = "rightArmCloseConfigInput";
             this.label2.Size = new System.Drawing.Size(50, 41);
             this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Text = "10";
             // 
             // leftArmCallobrationPanel
             // 
@@ -590,31 +588,32 @@ namespace RubiksCubeSolver
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(61, 0);
-            this.label5.Name = "label5";
+            this.label5.Name = "leftArmRotateConfigInput";
             this.label5.Size = new System.Drawing.Size(52, 44);
             this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Text = "10";
             // 
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
+            this.button5.Name = "leftARmRotateConfigPlus";
             this.button5.Size = new System.Drawing.Size(52, 38);
             this.button5.TabIndex = 2;
             this.button5.Text = "+";
             this.button5.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.leftArmRotateConfigPlusClick);
             // 
             // button8
             // 
             this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button8.Location = new System.Drawing.Point(119, 3);
-            this.button8.Name = "button8";
+            this.button8.Name = "leftARmRotateConfigMinus";
             this.button8.Size = new System.Drawing.Size(52, 38);
             this.button8.TabIndex = 4;
             this.button8.Text = "-";
             this.button8.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.leftArmRotateConfigPlusClick);
             // 
             // leftArmCallobrationLabel
             // 
@@ -651,31 +650,32 @@ namespace RubiksCubeSolver
             this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(61, 0);
-            this.label4.Name = "label4";
+            this.label4.Name = "leftArmCloseConfigInput";
             this.label4.Size = new System.Drawing.Size(52, 42);
             this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Text = "10";
             // 
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.Location = new System.Drawing.Point(3, 3);
-            this.button6.Name = "button6";
+            this.button6.Name = "leftArmCloseConfigPlus";
             this.button6.Size = new System.Drawing.Size(52, 36);
             this.button6.TabIndex = 2;
             this.button6.Text = "+";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.leftArmCloseConfigPlusClick);
             // 
             // button7
             // 
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button7.Location = new System.Drawing.Point(119, 3);
-            this.button7.Name = "button7";
+            this.button7.Name = "leftArmCloseConfigMinus";
             this.button7.Size = new System.Drawing.Size(52, 36);
             this.button7.TabIndex = 3;
             this.button7.Text = "-";
             this.button7.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.leftArmCloseConfigMinusClick);
             // 
             // textBox1
             // 
@@ -762,11 +762,11 @@ namespace RubiksCubeSolver
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox label3;
+        private System.Windows.Forms.TextBox label2;
+        private System.Windows.Forms.TextBox label5;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox label4;
         private System.Windows.Forms.Button button7;
 
         /********************************************

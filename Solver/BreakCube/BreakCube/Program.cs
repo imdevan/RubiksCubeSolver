@@ -90,6 +90,7 @@ namespace BreakCube
                     break;
                 case "F":
                 case "0":
+
                     //CW rotation of FRONT face
                     //BACK unaffected
                     front[0, 0] = front0[2, 0]; front[0, 1] = front0[1, 0]; front[0, 2] = front0[0, 0];
@@ -262,6 +263,10 @@ namespace BreakCube
                     left[2, 0] = front0[2, 0]; left[2, 1] = front0[2, 1]; left[2, 2] = front0[2, 2];
                     break;
             }//switch
+
+            // Send command to robot.
+            RobotInterface.Parse(move);
+
             upper0[0, 0] = upper[0, 0]; upper0[0, 1] = upper[0, 1]; upper0[0, 2] = upper[0, 2];
             upper0[1, 0] = upper[1, 0]; upper0[1, 1] = upper[1, 1]; upper0[1, 2] = upper[1, 2];
             upper0[2, 0] = upper[2, 0]; upper0[2, 1] = upper[2, 1]; upper0[2, 2] = upper[2, 2];
@@ -308,7 +313,7 @@ namespace BreakCube
                     // left
                     if (yi == 0 && xi == 1) return upper[1, 0];
                     if (yi == 1 && xi == 0) return back[1, 2];
-                    if (yi == 1 && xi == 2) return front[0, 1];
+                    if (yi == 1 && xi == 2) return front[1, 0];
                     if (yi == 2 && xi == 1) return down[1, 0];
                     break;
 
@@ -559,6 +564,8 @@ namespace BreakCube
                     }
                 }
             }
+
+
             // The color was not found on the rubiks cube:
             Console.WriteLine("no color found BAD CUBE INPUT -- ERROR LOCATION: GetCorner()");
             return new int[] { 0, 0, 0 };
